@@ -26,13 +26,13 @@ class RelayControllerSim(RelayController):
     def setup(self):
         pass
 
-    def turn_on(self):
+    def turn_on(self, effective_temperature:float=0.0):
         """
         Simulates turning on the device connected to the power relay.
         """
         self.current_state = True
         try:
-            DeviceHistory.set_device_status(True)
+            DeviceHistory.set_device_status(True, effective_temperature)
             return True
         except Exception as e:
             logger.error(
@@ -40,13 +40,13 @@ class RelayControllerSim(RelayController):
             )
             return False
 
-    def turn_off(self):
+    def turn_off(self, effective_temperature:float=0.0):
         """
         Simulates turning off the device connected to the power relay.
         """
         self.current_state = False
         try:
-            DeviceHistory.set_device_status(False)
+            DeviceHistory.set_device_status(False, effective_temperature)
             return True
         except Exception as e:
             logger.error(
