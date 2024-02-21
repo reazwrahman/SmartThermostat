@@ -29,9 +29,9 @@ class DeviceHistory:
     last_temperature: float = None
 
     __safety_configs = {
-        DeviceConfigKeys.MINIMUM_ON_TIME: 0.2,  # in minutes
-        DeviceConfigKeys.COOL_DOWN_PERIOD: 0.2,  # in minutes
-        DeviceConfigKeys.MAXIMUM_ON_TIME: 10,  # in minutes
+        DeviceConfigKeys.MINIMUM_ON_TIME: 1,  # in minutes
+        DeviceConfigKeys.COOL_DOWN_PERIOD: 1,  # in minutes
+        DeviceConfigKeys.MAXIMUM_ON_TIME: 2,  # in minutes
     }
 
     __temperature_lock = threading.Lock()  # Lock for thread synchronization
