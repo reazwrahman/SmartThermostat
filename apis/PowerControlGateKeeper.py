@@ -12,7 +12,7 @@ sys.path.append(grand_parent_dir)
 
 from apis.RelayControllerTarget import RelayControllerTarget
 from apis.RelayControllerSim import RelayControllerSim
-from apis.DeviceHistory import DeviceHistory, DeviceConfigKeys 
+from apis.Utility import Utility, DeviceConfigKeys 
 from apis.DatabaseAccess.CreateTable import SharedDataColumns 
 from apis.DatabaseAccess.DbInterface import DbInterface, DeviceStatus 
 
@@ -33,7 +33,7 @@ class PowerControlGateKeeper:
     This class is responsible for ensuring that it's safe to turn on or
     turn off the device, based on the safety parameters
     outlined in the configs.
-    """
+    """ 
 
     def __init__(self, db_interface:DbInterface, running_mode="Simulation"):
         if running_mode == "Simulation":
@@ -41,17 +41,14 @@ class PowerControlGateKeeper:
         else:
             self.relay_controller = RelayControllerTarget() 
         
-        self.db_interface:DbInterface = db_interface
+        self.db_interface:DbInterface = db_interface 
+        self.utility = Utility()
 
     def turn_on(self, effective_temperature=0.0):
         """
         Goes through a decision making process to determine
         whether it's safe to trigger the relay controller
         """
-        cool_down = DeviceHistory.get_safety_configs(
-            DeviceConfigKeys.COOL_DOWN_PERIOD
-        )
-        print(f'hey just testing: {cool_down}')
         if self.db_interface.read_column(SharedDataColumns.DEVICE_STATUS.value) == DeviceStatus.ON.value:
             message = "PowerControlGateKeeper::turn_on, device is already on, nothing to do here"
             logger.debug(message)
@@ -67,8 +64,8 @@ class PowerControlGateKeeper:
         # Calculate the difference in minutes 
         last_turned_off: datetime = datetime.datetime.strptime(last_turned_off, "%Y-%m-%d %H:%M:%S.%f")
         time_difference = (current_time - last_turned_off).total_seconds() / 60
-        if time_difference >= DeviceHistory.get_safety_configs(
-            DeviceConfigKeys.COOL_DOWN_PERIOD
+        if time_difference >= self.utility.get_safety_configs(
+            DeviceConfigKeys.COOL_DOWN_PERIOD.value
         ):
             self.relay_controller.turn_on(effective_temperature)
             logger.warn("PowerControlGateKeeper::turn_on turning device on")
@@ -85,10 +82,6 @@ class PowerControlGateKeeper:
         Goes through a decision making process to determine
         whether it's safe to trigger the relay controller
         """ 
-        cool_down = DeviceHistory.get_safety_configs(
-            DeviceConfigKeys.COOL_DOWN_PERIOD
-        )
-        print(f'hey just testing: {cool_down}')
         successful_log_msg = (
                 "PowerControlGateKeeper::turn_off turning device off"
             )
@@ -111,8 +104,8 @@ class PowerControlGateKeeper:
         last_turned_on: datetime = datetime.datetime.strptime(last_turned_on, "%Y-%m-%d %H:%M:%S.%f")
         time_difference = (current_time - last_turned_on).total_seconds() / 60
 
-        if time_difference >= DeviceHistory.get_safety_configs(
-            DeviceConfigKeys.MINIMUM_ON_TIME
+        if time_difference >= self.utility.get_safety_configs(
+            DeviceConfigKeys.MINIMUM_ON_TIME.value
         ):
             self.relay_controller.turn_off(effective_temperature)
             logger.warn(successful_log_msg)

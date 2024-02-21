@@ -10,7 +10,7 @@ sys.path.append(parent_dir)
 sys.path.append(grand_parent_dir)
 
 from apis.RelayController import RelayController
-from apis.DeviceHistory import DeviceHistory 
+from apis.Utility import Utility 
 from apis.DatabaseAccess.CreateTable import SharedDataColumns 
 from apis.DatabaseAccess.DbInterface import DbInterface, DeviceStatus 
 
@@ -25,9 +25,13 @@ class RelayControllerSim(RelayController):
 
     def __init__(self, db_interface:DbInterface):
         self.current_state: bool = False 
-        self.db_interface:DbInterface = db_interface
+        self.db_interface:DbInterface = db_interface 
+        self.utility = Utility()
 
     def setup(self):
+        """ 
+        No implementation is necessary for simulation.
+        """
         pass
 
     def turn_on(self, effective_temperature:float=0.0):
@@ -38,6 +42,7 @@ class RelayControllerSim(RelayController):
         try:
             self.db_interface.update_column(SharedDataColumns.DEVICE_STATUS.value, DeviceStatus.ON.value) 
             self.db_interface.update_column(SharedDataColumns.LAST_TURNED_ON.value, datetime.datetime.now())
+            self.utility.record_state_transition(status=False, effective_temperature=effective_temperature)
             return True
         except Exception as e:
             logger.error(
@@ -53,6 +58,7 @@ class RelayControllerSim(RelayController):
         try:
             self.db_interface.update_column(SharedDataColumns.DEVICE_STATUS.value, DeviceStatus.OFF.value) 
             self.db_interface.update_column(SharedDataColumns.LAST_TURNED_OFF.value, datetime.datetime.now())
+            self.utility.record_state_transition(status=False, effective_temperature=effective_temperature)
             return True
         except Exception as e:
             logger.error(

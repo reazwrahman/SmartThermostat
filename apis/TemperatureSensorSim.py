@@ -10,7 +10,7 @@ grand_parent_dir = os.path.dirname(parent_dir)
 sys.path.append(parent_dir)
 sys.path.append(grand_parent_dir)
 
-from apis.TemperatureSensor import TemperatureSensor
+from apis.TemperatureSensor import TemperatureSensor 
 
 logger = logging.getLogger(__name__)
 
@@ -36,7 +36,7 @@ class TemperatureSensorSim(TemperatureSensor):
         )
 
         self.__last_read_value: float = None
-        self.__read_input_file()
+        self.__read_input_file() 
 
     def __read_input_file(self):
         """
@@ -54,7 +54,7 @@ class TemperatureSensorSim(TemperatureSensor):
             sys.exit()
 
         try:
-            self.start_temp = float(config_data.get("start_temp"))
+            self.start_temp =  float(config_data.get("start_temp"))
             self.drop_rate = float(config_data.get("drop_rate"))
             self.rise_rate = float(config_data.get("rise_rate"))
         except Exception as e:

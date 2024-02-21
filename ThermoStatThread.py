@@ -7,7 +7,7 @@ import os
 from apis.PowerControlGateKeeper import PowerControlGateKeeper, States 
 from apis.DatabaseAccess.CreateTable import SharedDataColumns 
 from apis.DatabaseAccess.DbInterface import DbInterface 
-from apis.DeviceHistory import DeviceHistory, DeviceConfigKeys
+from apis.Utility import Utility, DeviceConfigKeys
 
 DELAY_BETWEEN_READS = 10  # take a read every n seconds
 
@@ -27,7 +27,8 @@ class ThermoStatThread(Thread):
         self.target_temp = target_temperature
         self.thread_name = thread_name
         self.keep_me_alive = True 
-        self.db_interface:DbInterface = db_interface
+        self.db_interface:DbInterface = db_interface 
+        self.utility = Utility()
 
         self.__gate_keeper:PowerControlGateKeeper = PowerControlGateKeeper(db_interface=db_interface)
         self.db_interface.update_column(SharedDataColumns.TARGET_TEMPERATURE.value, self.target_temp)
@@ -61,8 +62,8 @@ class ThermoStatThread(Thread):
             last_turned_on: datetime = datetime.datetime.strptime(last_turned_on, "%Y-%m-%d %H:%M:%S.%f") 
             current_time: datetime = datetime.datetime.now()
             time_difference = (current_time - last_turned_on).total_seconds() / 60
-            if time_difference >= DeviceHistory.get_safety_configs(
-                DeviceConfigKeys.MAXIMUM_ON_TIME
+            if time_difference >= self.utility.get_safety_configs(
+                DeviceConfigKeys.MAXIMUM_ON_TIME.value
             ):
                 logger.warn(
                     "ThermoStatThread::__check_heater_on_time Device's maximum on time has exceeded"
