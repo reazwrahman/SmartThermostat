@@ -48,8 +48,7 @@ class ThermoStatThread(Thread):
                         sum(temperature_history) / SAMPLE_SIZE, 2
                     )
                     if running_avg <= self.target_temp:
-                        status = self.__gate_keeper.turn_on(running_avg) 
-                        logging.warn(f"temp went below triggering")
+                        status = self.__gate_keeper.turn_on(running_avg)
                     else:
                         status = self.__gate_keeper.turn_off(running_avg) 
 

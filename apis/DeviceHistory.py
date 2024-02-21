@@ -72,16 +72,13 @@ class DeviceHistory:
     @staticmethod
     def get_temperature():   
         with DeviceHistory.__temperature_read_lock:
-            print (f'temp read: {DeviceHistory.last_temperature}')
             return DeviceHistory.last_temperature
 
     @staticmethod
     def update_temperature(new_temperature: float): 
-        try:
-            with DeviceHistory.__temperature_lock:
-                DeviceHistory.last_temperature = new_temperature  
-        except Exception as e: 
-            print(f'something wwent wrong, exception: {str(e)}')
+        with DeviceHistory.__temperature_lock:
+            DeviceHistory.last_temperature = new_temperature  
+      
 
     @staticmethod
     def get_safety_configs(data_key: str):

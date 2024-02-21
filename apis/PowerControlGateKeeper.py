@@ -68,7 +68,7 @@ class PowerControlGateKeeper:
             return States.TURNED_ON
 
         else:
-            logger.warn(
+            logger.debug(
                 "PowerControlGateKeeper::turn_on Unable to turn device on, device is currently in a cool down stage"
             )
             return States.REQUEST_DENIED
@@ -107,7 +107,7 @@ class PowerControlGateKeeper:
             return States.TURNED_OFF
 
         else:
-            logger.warn(
+            logger.debug(
                 "PowerControlGateKeeper::turn_off Unable to turn device off, device needs to be on for a minimum period of time"
             )
             return States.REQUEST_DENIED
