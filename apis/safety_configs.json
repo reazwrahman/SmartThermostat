@@ -1,5 +1,5 @@
 {
-    "MINIMUM_ON_TIME": 1,
-    "COOL_DOWN_PERIOD": 1,
-    "MAXIMUM_ON_TIME": 2
+    "MINIMUM_ON_TIME": 2,
+    "COOL_DOWN_PERIOD": 5,
+    "MAXIMUM_ON_TIME": 15
 }
