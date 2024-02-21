@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 sensor_thread: TemperatureSensorThread = TemperatureSensorThread()
 sensor_thread.start()
 
-thermostat_thread: ThermoStatThread = ThermoStatThread(target_temperature=21.50)
+thermostat_thread: ThermoStatThread = ThermoStatThread(target_temperature=22.0)
 thermostat_thread.start()
 
 ## TODO: write a function here to get user input on temperature, use args if

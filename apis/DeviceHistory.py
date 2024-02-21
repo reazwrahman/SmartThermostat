@@ -29,9 +29,9 @@ class DeviceHistory:
     last_temperature: float = None
 
     __safety_configs = {
-        DeviceConfigKeys.MINIMUM_ON_TIME: 0.2,  # in minutes
-        DeviceConfigKeys.COOL_DOWN_PERIOD: 0.2,  # in minutes
-        DeviceConfigKeys.MAXIMUM_ON_TIME: 10,  # in minutes
+        DeviceConfigKeys.MINIMUM_ON_TIME: 1,  # in minutes
+        DeviceConfigKeys.COOL_DOWN_PERIOD: 1,  # in minutes
+        DeviceConfigKeys.MAXIMUM_ON_TIME: 2,  # in minutes
     }
 
     __temperature_lock = threading.Lock()  # Lock for thread synchronization
@@ -44,14 +44,14 @@ class DeviceHistory:
             return DeviceHistory.__device_is_on
 
     @staticmethod
-    def set_device_status(new_status: bool): 
-        DeviceHistory.record_state_transition(new_status)
+    def set_device_status(new_status: bool, effective_temperature:float = 0.0): 
         with DeviceHistory.__device_status_lock:  # Acquire lock
             DeviceHistory.__device_is_on = new_status
             if new_status:
                 DeviceHistory.set_last_turn_on_time(datetime.datetime.now())
             else:
-                DeviceHistory.set_last_turn_off_time(datetime.datetime.now())
+                DeviceHistory.set_last_turn_off_time(datetime.datetime.now()) 
+        DeviceHistory.record_state_transition(new_status, effective_temperature)
 
     @staticmethod
     def get_last_turn_on_time():
@@ -72,16 +72,13 @@ class DeviceHistory:
     @staticmethod
     def get_temperature():   
         with DeviceHistory.__temperature_read_lock:
-            print (f'temp read: {DeviceHistory.last_temperature}')
             return DeviceHistory.last_temperature
 
     @staticmethod
     def update_temperature(new_temperature: float): 
-        try:
-            with DeviceHistory.__temperature_lock:
-                DeviceHistory.last_temperature = new_temperature  
-        except Exception as e: 
-            print(f'something wwent wrong, exception: {str(e)}')
+        with DeviceHistory.__temperature_lock:
+            DeviceHistory.last_temperature = new_temperature  
+      
 
     @staticmethod
     def get_safety_configs(data_key: str):
@@ -94,13 +91,13 @@ class DeviceHistory:
             return None
 
     @staticmethod
-    def record_state_transition(status: bool):
+    def record_state_transition(status: bool, effective_temperature:float):
         payload = dict()
         if status:
             payload["state_change"] = "Device Turned On"
         else:
             payload["state_change"] = "Device Turned Off"
-        payload["current_temperature"] = str(DeviceHistory.get_temperature())
+        payload["current_temperature"] = effective_temperature
         payload["current_timestamp"] = datetime.datetime.now()
         payload["last_turned_on"] = DeviceHistory.get_last_turn_on_time()
         payload["last_turned_off"] = DeviceHistory.get_last_turn_off_time() 

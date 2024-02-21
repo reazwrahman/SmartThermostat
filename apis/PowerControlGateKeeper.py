@@ -39,7 +39,7 @@ class PowerControlGateKeeper:
         else:
             self.relay_controller = RelayControllerTarget()
 
-    def turn_on(self):
+    def turn_on(self, effective_temperature=0.0):
         """
         Goes through a decision making process to determine
         whether it's safe to trigger the relay controller
@@ -52,7 +52,7 @@ class PowerControlGateKeeper:
 
         last_turned_off: datetime = DeviceHistory.get_last_turn_off_time()
         if not last_turned_off:
-            self.relay_controller.turn_on()
+            self.relay_controller.turn_on(effective_temperature)
             return States.TURNED_ON
 
         current_time: datetime = datetime.datetime.now()
@@ -63,17 +63,17 @@ class PowerControlGateKeeper:
         if time_difference >= DeviceHistory.get_safety_configs(
             DeviceConfigKeys.COOL_DOWN_PERIOD
         ):
-            self.relay_controller.turn_on()
+            self.relay_controller.turn_on(effective_temperature)
             logger.warn("PowerControlGateKeeper::turn_on turning device on")
             return States.TURNED_ON
 
         else:
-            logger.warn(
+            logger.debug(
                 "PowerControlGateKeeper::turn_on Unable to turn device on, device is currently in a cool down stage"
             )
             return States.REQUEST_DENIED
 
-    def turn_off(self):
+    def turn_off(self, effective_temperature=0.0):
         """
         Goes through a decision making process to determine
         whether it's safe to trigger the relay controller
@@ -90,7 +90,7 @@ class PowerControlGateKeeper:
 
         last_turned_on: datetime = DeviceHistory.get_last_turn_on_time()
         if not last_turned_on:
-            self.relay_controller.turn_off()
+            self.relay_controller.turn_off(effective_temperature)
             logger.warn(successful_log_msg)
             return States.TURNED_OFF
 
@@ -102,12 +102,12 @@ class PowerControlGateKeeper:
         if time_difference >= DeviceHistory.get_safety_configs(
             DeviceConfigKeys.MINIMUM_ON_TIME
         ):
-            self.relay_controller.turn_off()
+            self.relay_controller.turn_off(effective_temperature)
             logger.warn(successful_log_msg)
             return States.TURNED_OFF
 
         else:
-            logger.warn(
+            logger.debug(
                 "PowerControlGateKeeper::turn_off Unable to turn device off, device needs to be on for a minimum period of time"
             )
             return States.REQUEST_DENIED

@@ -8,7 +8,7 @@ from apis.PowerControlGateKeeper import PowerControlGateKeeper, States
 from apis.DeviceHistory import DeviceHistory, DeviceConfigKeys
 
 DELAY_BETWEEN_READS = 1  # take a read every n seconds
-SAMPLE_SIZE = 1  # take average of n reads before taking any action
+SAMPLE_SIZE = 10  # take average of n reads before taking any action
 
 logger = logging.getLogger(__name__)
 
@@ -27,7 +27,8 @@ class ThermoStatThread(Thread):
         self.thread_name = thread_name
         self.keep_me_alive = True
 
-        self.__gate_keeper = PowerControlGateKeeper()
+        self.__gate_keeper = PowerControlGateKeeper() 
+        self.temperature_history: list = []
 
     def run(self):
         """
@@ -39,20 +40,19 @@ class ThermoStatThread(Thread):
             if status != States.TURNED_OFF:
                 current_temp: float = None
                 running_avg: float = None
-                temperature_history: list = []
             current_temp = DeviceHistory.get_temperature()
-            if current_temp:
-                temperature_history.append(current_temp)
-                if len(temperature_history) == SAMPLE_SIZE:
+            if current_temp: 
+                self.temperature_history.append(current_temp)
+                if len(self.temperature_history) >= SAMPLE_SIZE:
                     running_avg = round(
-                        sum(temperature_history) / SAMPLE_SIZE, 2
-                    )
+                        sum(self.temperature_history) / SAMPLE_SIZE, 2
+                    ) 
                     if running_avg <= self.target_temp:
-                        status = self.__gate_keeper.turn_on() 
-                        logging.warn(f"temp went below triggering")
+                        status = self.__gate_keeper.turn_on(running_avg)
                     else:
-                        status = self.__gate_keeper.turn_off() 
+                        status = self.__gate_keeper.turn_off(running_avg) 
 
+                    self.temperature_history = [] ## reset history
             time.sleep(DELAY_BETWEEN_READS)
 
     def terminate(self):

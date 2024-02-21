@@ -1,6 +1,6 @@
 {
     "start_temp": 22.23,
-    "drop_rate": 0.1,
-    "rise_rate": 0.1
+    "drop_rate": 0.01,
+    "rise_rate": 0.01
 }
 

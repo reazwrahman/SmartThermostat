@@ -29,14 +29,9 @@ class TemperatureSensorThread(Thread):
         while self.keep_me_alive:
             current_temp: float = self.thermo_stat.get_temperature()
             DeviceHistory.update_temperature(current_temp)
-            logging.info("====================================")
             logging.info(
                 f"Current Temperature: {DeviceHistory.get_temperature()}"
             )
-            logging.info(
-                f"Device status is on: {DeviceHistory.get_device_status()}"
-            )
-            logging.info("====================================")
             time.sleep(DELAY_BETWEEN_READS)
 
     def terminate(self):
