@@ -1,0 +1,641 @@
+(base) ➜  application git:(sqlite1) ✗ python3 app.py     
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_off turning device off
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on turning device on
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_off turning device off
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:ThermoStatThread:ThermoStatThread::__check_heater_on_time Device's maximum on time has 
+exceeded
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_off, device is already off, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:ThermoStatThread:ThermoStatThread::__check_heater_on_time Device's maximum on time has 
+exceeded
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_off, device is already off, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:ThermoStatThread:ThermoStatThread::__check_heater_on_time Device's maximum on time has 
+exceeded
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_off, device is already off, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:ThermoStatThread:ThermoStatThread::__check_heater_on_time Device's maximum on time has 
+exceeded
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_off, device is already off, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:ThermoStatThread:ThermoStatThread::__check_heater_on_time Device's maximum on time has 
+exceeded
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_off, device is already off, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:ThermoStatThread:ThermoStatThread::__check_heater_on_time Device's maximum on time has 
+exceeded
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_off, device is already off, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:ThermoStatThread:ThermoStatThread::__check_heater_on_time Device's maximum on time has 
+exceeded
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_off, device is already off, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:ThermoStatThread:ThermoStatThread::__check_heater_on_time Device's maximum on time has 
+exceeded
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_off, device is already off, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:ThermoStatThread:ThermoStatThread::__check_heater_on_time Device's maximum on time has 
+exceeded
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_off, device is already off, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:ThermoStatThread:ThermoStatThread::__check_heater_on_time Device's maximum on time has 
+exceeded
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_off, device is already off, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:ThermoStatThread:ThermoStatThread::__check_heater_on_time Device's maximum on time has 
+exceeded
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_off, device is already off, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:ThermoStatThread:ThermoStatThread::__check_heater_on_time Device's maximum on time has 
+exceeded
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_off, device is already off, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:ThermoStatThread:ThermoStatThread::__check_heater_on_time Device's maximum on time has 
+exceeded
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_off, device is already off, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:ThermoStatThread:ThermoStatThread::__check_heater_on_time Device's maximum on time has 
+exceeded
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_off, device is already off, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:ThermoStatThread:ThermoStatThread::__check_heater_on_time Device's maximum on time has 
+exceeded
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_off, device is already off, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:ThermoStatThread:ThermoStatThread::__check_heater_on_time Device's maximum on time has 
+exceeded
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_off, device is already off, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:ThermoStatThread:ThermoStatThread::__check_heater_on_time Device's maximum on time has 
+exceeded
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_off, device is already off, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:ThermoStatThread:ThermoStatThread::__check_heater_on_time Device's maximum on time has 
+exceeded
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_off, device is already off, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+WARNING:ThermoStatThread:ThermoStatThread::__check_heater_on_time Device's maximum on time has 
+exceeded
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_off, device is already off, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on turning device on
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on, device is already on, 
+nothing to do here
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_off turning device off
+WARNING:apis.PowerControlGateKeeper:PowerControlGateKeeper::turn_on Unable to turn device on, 
+device is currently in a cool down stage
+^CTraceback (most recent call last):
+  File "/Users/reazrahman/Documents/college_works/cs521/final_project/application/app.py", line 
+33, in <module>
+    sensor_thread.join()
+  File "/Users/reazrahman/anaconda3/lib/python3.11/threading.py", line 1112, in join
+    self._wait_for_tstate_lock()
+  File "/Users/reazrahman/anaconda3/lib/python3.11/threading.py", line 1132, in 
+_wait_for_tstate_lock
+    if lock.acquire(block, timeout):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+^CException ignored in: <module 'threading' from 
+'/Users/reazrahman/anaconda3/lib/python3.11/threading.py'>
+Traceback (most recent call last):
+  File "/Users/reazrahman/anaconda3/lib/python3.11/threading.py", line 1583, in _shutdown
+    lock.acquire()
+KeyboardInterrupt: 
+
+(base) ➜  application git:(sqlite1) ✗ 
+

@@ -3,9 +3,11 @@ import time
 import logging
 
 from apis.TemperatureSensorSim import TemperatureSensorSim
-from apis.DeviceHistory import DeviceHistory
+from apis.DatabaseAccess.CreateTable import SharedDataColumns
+from apis.DatabaseAccess.DbInterface import DbInterface, DeviceStatus
 
-DELAY_BETWEEN_READS = 1  # in seconds
+DELAY_BETWEEN_READS = 1  # take a read every n seconds
+SAMPLE_SIZE = 5  # take average of n reads before taking any action
 
 logger = logging.getLogger(__name__)
 
@@ -16,22 +18,35 @@ class TemperatureSensorThread(Thread):
     value in a regular cadence
     """
 
-    def __init__(self, thread_name="TemperatureSensorThread"):
+    def __init__(self, db_interface, thread_name="TemperatureSensorThread"):
         Thread.__init__(self)
         self.thermo_stat = TemperatureSensorSim()
         self.thread_name = thread_name
         self.keep_me_alive = True
+        self.db_interface = db_interface
+        self.temperature_history: list = []
 
     def run(self):
         """
-        main thread that runs continuously
+        main thread that runs continuously. Update every n seconds,
+        with the running average of n sample data
         """
         while self.keep_me_alive:
-            current_temp: float = self.thermo_stat.get_temperature()
-            DeviceHistory.update_temperature(current_temp)
-            logging.info(
-                f"Current Temperature: {DeviceHistory.get_temperature()}"
+            device_status = self.db_interface.read_column(
+                SharedDataColumns.DEVICE_STATUS.value
             )
+            current_temp: float = self.thermo_stat.get_temperature(
+                device_status == DeviceStatus.ON.value
+            )
+            self.temperature_history.append(current_temp)
+            if len(self.temperature_history) >= SAMPLE_SIZE:
+                running_avg = round(sum(self.temperature_history) / SAMPLE_SIZE, 2)
+
+                self.db_interface.update_column(
+                    SharedDataColumns.LAST_TEMPERATURE.value, running_avg
+                )
+                self.temperature_history = []  # reset batch
+            logging.info(f"Current Temperature: {current_temp}")
             time.sleep(DELAY_BETWEEN_READS)
 
     def terminate(self):

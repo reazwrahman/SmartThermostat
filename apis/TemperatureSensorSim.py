@@ -10,8 +10,7 @@ grand_parent_dir = os.path.dirname(parent_dir)
 sys.path.append(parent_dir)
 sys.path.append(grand_parent_dir)
 
-from application.apis.TemperatureSensor import TemperatureSensor
-from application.apis.DeviceHistory import DeviceHistory
+from apis.TemperatureSensor import TemperatureSensor
 
 logger = logging.getLogger(__name__)
 
@@ -29,9 +28,7 @@ class TemperatureSensorSim(TemperatureSensor):
 
     def __init__(self):
         self.start_temp: float = None  # in celsius
-        self.drop_rate: float = (
-            None  # how much the temp drops per second in winter
-        )
+        self.drop_rate: float = None  # how much the temp drops per second in winter
         self.rise_rate: float = (
             None  # how much the temp will rise per second if the heater is on
         )
@@ -65,7 +62,7 @@ class TemperatureSensorSim(TemperatureSensor):
             )
             sys.exit()
 
-    def get_temperature(self):
+    def get_temperature(self, device_status: bool):
         """
         returns the current (simulated) temperature
         """
@@ -74,17 +71,13 @@ class TemperatureSensorSim(TemperatureSensor):
             self.__last_read_value = self.start_temp
             return self.__last_read_value
 
-        heater_is_on: bool = DeviceHistory.get_device_status()
+        heater_is_on: bool = device_status
 
         if heater_is_on:
-            self.__last_read_value = round(
-                self.__last_read_value + self.rise_rate, 2
-            )
+            self.__last_read_value = round(self.__last_read_value + self.rise_rate, 2)
             return self.__last_read_value
         else:
-            self.__last_read_value = round(
-                self.__last_read_value - self.drop_rate, 2
-            )
+            self.__last_read_value = round(self.__last_read_value - self.drop_rate, 2)
             return self.__last_read_value
 
 
@@ -97,7 +90,6 @@ if __name__ == "__main__":
     assert sensor_sim.rise_rate != None, "Failed to read config data"
 
     # test get_temperature method::test three reads when heater is off
-    DeviceHistory.set_device_status(False)  # make sure heater is off first
     i = 0
     while i < 3:
         time.sleep(0.1)
@@ -105,18 +97,17 @@ if __name__ == "__main__":
             sensor_sim.start_temp - sensor_sim.drop_rate * i, 2
         )
         assert (
-            sensor_sim.get_temperature() == expected_temperature
+            sensor_sim.get_temperature(False) == expected_temperature
         ), f"Returned wrong temperature value for read {i} (when heater is off)"
         i += 1
 
     ##  # test get_temperature method::test three reads when heater is on
-    DeviceHistory.set_device_status(True)  # assuming heater is on
-    current_temperature = sensor_sim.get_temperature()
+    current_temperature = sensor_sim.get_temperature(True)
     i = 1
     while i < 4:
         time.sleep(0.1)
         expected_temperature = current_temperature + sensor_sim.rise_rate * i
         assert (
-            sensor_sim.get_temperature() == expected_temperature
+            sensor_sim.get_temperature(True) == expected_temperature
         ), f"Returned wrong temperature value for read {i} (when heater is on)"
         i += 1
