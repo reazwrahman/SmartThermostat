@@ -10,7 +10,7 @@ grand_parent_dir = os.path.dirname(parent_dir)
 sys.path.append(parent_dir)
 sys.path.append(grand_parent_dir)
 
-from apis.TemperatureSensor import TemperatureSensor 
+from apis.TemperatureSensor import TemperatureSensor
 
 logger = logging.getLogger(__name__)
 
@@ -28,15 +28,13 @@ class TemperatureSensorSim(TemperatureSensor):
 
     def __init__(self):
         self.start_temp: float = None  # in celsius
-        self.drop_rate: float = (
-            None  # how much the temp drops per second in winter
-        )
+        self.drop_rate: float = None  # how much the temp drops per second in winter
         self.rise_rate: float = (
             None  # how much the temp will rise per second if the heater is on
         )
 
         self.__last_read_value: float = None
-        self.__read_input_file() 
+        self.__read_input_file()
 
     def __read_input_file(self):
         """
@@ -54,7 +52,7 @@ class TemperatureSensorSim(TemperatureSensor):
             sys.exit()
 
         try:
-            self.start_temp =  float(config_data.get("start_temp"))
+            self.start_temp = float(config_data.get("start_temp"))
             self.drop_rate = float(config_data.get("drop_rate"))
             self.rise_rate = float(config_data.get("rise_rate"))
         except Exception as e:
@@ -64,7 +62,7 @@ class TemperatureSensorSim(TemperatureSensor):
             )
             sys.exit()
 
-    def get_temperature(self, device_status:bool):
+    def get_temperature(self, device_status: bool):
         """
         returns the current (simulated) temperature
         """
@@ -76,14 +74,10 @@ class TemperatureSensorSim(TemperatureSensor):
         heater_is_on: bool = device_status
 
         if heater_is_on:
-            self.__last_read_value = round(
-                self.__last_read_value + self.rise_rate, 2
-            )
+            self.__last_read_value = round(self.__last_read_value + self.rise_rate, 2)
             return self.__last_read_value
         else:
-            self.__last_read_value = round(
-                self.__last_read_value - self.drop_rate, 2
-            )
+            self.__last_read_value = round(self.__last_read_value - self.drop_rate, 2)
             return self.__last_read_value
 
 

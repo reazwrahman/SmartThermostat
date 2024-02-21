@@ -1,30 +1,33 @@
-import sqlite3 
-import logging 
-from enum import Enum 
+import sqlite3
+import logging
+from enum import Enum
 
-DB_NAME = 'DeviceHistory.db' 
-SHARED_DATA_TABLE = "SharedData"   
+DB_NAME = "DeviceHistory.db"
+SHARED_DATA_TABLE = "SharedData"
 
-logger = logging.getLogger(__name__) 
+logger = logging.getLogger(__name__)
+
 
 class SharedDataColumns(Enum):
-    ID = "id" 
-    DEVICE_STATUS = "device_status" 
-    LAST_TEMPERATURE = "last_temperature" 
-    LAST_TURNED_ON = "last_turned_on" 
-    LAST_TURNED_OFF = "last_turned_off" 
+    ID = "id"
+    DEVICE_STATUS = "device_status"
+    LAST_TEMPERATURE = "last_temperature"
+    LAST_TURNED_ON = "last_turned_on"
+    LAST_TURNED_OFF = "last_turned_off"
     TARGET_TEMPERATURE = "target_temperature"
+
 
 class CreateTable:
     def __init__(self):
-        self.db_name = DB_NAME  
+        self.db_name = DB_NAME
 
     def create_shared_datatable(self):
         try:
             conn = sqlite3.connect(self.db_name)
             cursor = conn.cursor()
 
-            cursor.execute(f'''
+            cursor.execute(
+                f"""
                 CREATE TABLE IF NOT EXISTS {SHARED_DATA_TABLE} (
                     {SharedDataColumns.ID.value} INTEGER PRIMARY KEY, 
                     {SharedDataColumns.DEVICE_STATUS.value} TEXT,
@@ -33,12 +36,13 @@ class CreateTable:
                     {SharedDataColumns.LAST_TURNED_OFF.value} TEXT,
                     {SharedDataColumns.TARGET_TEMPERATURE.value} REAL
                 )
-            ''') 
+            """
+            )
 
-            insert_query = f'''
+            insert_query = f"""
             INSERT INTO {SHARED_DATA_TABLE} ({SharedDataColumns.ID.value}, {SharedDataColumns.DEVICE_STATUS.value}, {SharedDataColumns.LAST_TEMPERATURE.value}, 
             {SharedDataColumns.LAST_TURNED_ON.value}, {SharedDataColumns.LAST_TURNED_OFF.value}, {SharedDataColumns.TARGET_TEMPERATURE.value})
-            VALUES ('1', 'OFF', NULL, NULL, NULL, NULL)'''
+            VALUES ('1', 'OFF', NULL, NULL, NULL, NULL)"""
             cursor.execute(insert_query)
             conn.commit()
             logger.info(f"Table {SHARED_DATA_TABLE} created successfully.")
@@ -49,6 +53,7 @@ class CreateTable:
         finally:
             if conn:
                 conn.close()
+
 
 if __name__ == "__main__":
     table_creator = CreateTable()
