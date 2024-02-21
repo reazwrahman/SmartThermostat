@@ -1,12 +1,17 @@
 import sqlite3  
-import logging
+import logging 
+from enum import Enum
 
 from apis.DatabaseAccess.CreateTable import SharedDataColumns 
 
 DB_NAME = "DeviceHistory.db"
 SHARED_DATA_TABLE = "SharedData" 
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger(__name__) 
+
+class DeviceStatus(Enum):
+    ON = "ON" 
+    OFF = "OFF"
 
 class DbInterface:
     def __init__(self):
@@ -34,7 +39,7 @@ class DbInterface:
                 ''', (new_value,))
 
             conn.commit()
-            logger.info(f"{column_name} value updated successfully.")
+            logger.info(f"{column_name} value updated successfully: {new_value}.")
 
         except sqlite3.Error as e:
             logger.error(f"Error updating {column_name} value:", e)
@@ -57,7 +62,7 @@ class DbInterface:
             value = cursor.fetchone()
 
             if value: 
-                logger.info(f"value read from db: {value[0]}")
+                logger.debug(f"{column_name} read from db: {value[0]}")
                 return value[0]
             else:
                 logger.warn(f"No {column_name} data found.")

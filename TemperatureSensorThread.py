@@ -5,7 +5,7 @@ import logging
 from apis.TemperatureSensorSim import TemperatureSensorSim
 from apis.DeviceHistory import DeviceHistory  
 from apis.DatabaseAccess.CreateTable import SharedDataColumns
-from apis.DatabaseAccess.DbInterface import DbInterface
+from apis.DatabaseAccess.DbInterface import DbInterface, DeviceStatus
 
 DELAY_BETWEEN_READS = 1  # take a read every n seconds
 SAMPLE_SIZE = 5  # take average of n reads before taking any action
@@ -33,14 +33,15 @@ class TemperatureSensorThread(Thread):
         with the running average of n sample data
         """
         while self.keep_me_alive:
-            current_temp: float = self.thermo_stat.get_temperature() 
+            device_status = self.db_interface.read_column(SharedDataColumns.DEVICE_STATUS.value) 
+            current_temp: float = self.thermo_stat.get_temperature(device_status == DeviceStatus.ON.value)
             self.temperature_history.append(current_temp)
             if len(self.temperature_history) >= SAMPLE_SIZE:
                 running_avg = round(
                     sum(self.temperature_history) / SAMPLE_SIZE, 2
                 ) 
 
-                self.db_interface.update_column(SharedDataColumns.LAST_TEMPERATURE.value, current_temp) 
+                self.db_interface.update_column(SharedDataColumns.LAST_TEMPERATURE.value, running_avg) 
                 self.temperature_history = [] # reset batch
             logging.info(
                 f"Current Temperature: {current_temp}"
