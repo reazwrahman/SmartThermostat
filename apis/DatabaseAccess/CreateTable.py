@@ -1,6 +1,6 @@
 import sqlite3 
 import logging 
-from enum import Enum
+from enum import Enum 
 
 DB_NAME = 'DeviceHistory.db' 
 SHARED_DATA_TABLE = "SharedData"   
@@ -13,11 +13,11 @@ class SharedDataColumns(Enum):
     LAST_TEMPERATURE = "last_temperature" 
     LAST_TURNED_ON = "last_turned_on" 
     LAST_TURNED_OFF = "last_turned_off" 
-    LAST_UPDATED = "last_updated"
+    TARGET_TEMPERATURE = "target_temperature"
 
 class CreateTable:
     def __init__(self):
-        self.db_name = DB_NAME 
+        self.db_name = DB_NAME  
 
     def create_shared_datatable(self):
         try:
@@ -31,10 +31,15 @@ class CreateTable:
                     {SharedDataColumns.LAST_TEMPERATURE.value} REAL,
                     {SharedDataColumns.LAST_TURNED_ON.value} TEXT,
                     {SharedDataColumns.LAST_TURNED_OFF.value} TEXT,
-                    {SharedDataColumns.LAST_UPDATED.value} TEXT
+                    {SharedDataColumns.TARGET_TEMPERATURE.value} REAL
                 )
-            ''')
+            ''') 
 
+            insert_query = f'''
+            INSERT INTO {SHARED_DATA_TABLE} ({SharedDataColumns.ID.value}, {SharedDataColumns.DEVICE_STATUS.value}, {SharedDataColumns.LAST_TEMPERATURE.value}, 
+            {SharedDataColumns.LAST_TURNED_ON.value}, {SharedDataColumns.LAST_TURNED_OFF.value}, {SharedDataColumns.TARGET_TEMPERATURE.value})
+            VALUES ('1', 'OFF', NULL, NULL, NULL, NULL)'''
+            cursor.execute(insert_query)
             conn.commit()
             logger.info(f"Table {SHARED_DATA_TABLE} created successfully.")
 
