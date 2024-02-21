@@ -34,7 +34,7 @@ class RelayControllerSim(RelayController):
         """
         pass
 
-    def turn_on(self, effective_temperature:float=0.0):
+    def turn_on(self, effective_temperature:float=0.0, reason=""):
         """
         Simulates turning on the device connected to the power relay.
         """
@@ -42,7 +42,7 @@ class RelayControllerSim(RelayController):
         try:
             self.db_interface.update_column(SharedDataColumns.DEVICE_STATUS.value, DeviceStatus.ON.value) 
             self.db_interface.update_column(SharedDataColumns.LAST_TURNED_ON.value, datetime.datetime.now())
-            self.utility.record_state_transition(status=False, effective_temperature=effective_temperature)
+            self.utility.record_state_transition(status=self.current_state, effective_temperature=effective_temperature, reason=reason)
             return True
         except Exception as e:
             logger.error(
@@ -50,7 +50,7 @@ class RelayControllerSim(RelayController):
             )
             return False
 
-    def turn_off(self, effective_temperature:float=0.0):
+    def turn_off(self, effective_temperature:float=0.0, reason=""):
         """
         Simulates turning off the device connected to the power relay.
         """
@@ -58,7 +58,7 @@ class RelayControllerSim(RelayController):
         try:
             self.db_interface.update_column(SharedDataColumns.DEVICE_STATUS.value, DeviceStatus.OFF.value) 
             self.db_interface.update_column(SharedDataColumns.LAST_TURNED_OFF.value, datetime.datetime.now())
-            self.utility.record_state_transition(status=False, effective_temperature=effective_temperature)
+            self.utility.record_state_transition(status=self.current_state, effective_temperature=effective_temperature, reason=reason)
             return True
         except Exception as e:
             logger.error(

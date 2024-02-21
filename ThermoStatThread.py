@@ -44,9 +44,9 @@ class ThermoStatThread(Thread):
                 current_temp:float = self.db_interface.read_column(SharedDataColumns.LAST_TEMPERATURE.value)
                 if current_temp: 
                         if current_temp <= self.target_temp:
-                            status = self.__gate_keeper.turn_on(current_temp)
+                            status = self.__gate_keeper.turn_on(effective_temperature=current_temp, reason= "Current Temperature is below target temperature")
                         else:
-                            status = self.__gate_keeper.turn_off(current_temp) 
+                            status = self.__gate_keeper.turn_off(effective_temperature=current_temp, reason = "Current Temperature is above target temperature") 
 
             time.sleep(DELAY_BETWEEN_READS)
 
@@ -68,7 +68,7 @@ class ThermoStatThread(Thread):
                 logger.warn(
                     "ThermoStatThread::__check_heater_on_time Device's maximum on time has exceeded"
                 )
-                status = self.__gate_keeper.turn_off(effective_temperature=0.0)
+                status = self.__gate_keeper.turn_off(effective_temperature=0.0, reason= "Device's maximum on time has exceeded")
                 return status
 
         return States.NO_ACTION

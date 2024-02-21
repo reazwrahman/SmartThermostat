@@ -13,12 +13,19 @@ class DeviceStatus(Enum):
     ON = "ON" 
     OFF = "OFF"
 
-class DbInterface:
+class DbInterface: 
+    """ 
+    An API to interact with the database 
+    """
+
     def __init__(self):
         self.db_name = DB_NAME
 
 
     def update_column(self, column_name, new_value): 
+        """ 
+        Updates a column in the database table with the provided value 
+        """
         try: 
             conn = sqlite3.connect(self.db_name)
             cursor = conn.cursor()
@@ -49,7 +56,10 @@ class DbInterface:
                 conn.close()
 
 
-    def read_column(self, column_name):
+    def read_column(self, column_name): 
+        """ 
+        reads the specified column from the table and returns the value
+        """
         try:
             conn = sqlite3.connect(self.db_name)
             cursor = conn.cursor()

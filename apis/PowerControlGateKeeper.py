@@ -44,19 +44,19 @@ class PowerControlGateKeeper:
         self.db_interface:DbInterface = db_interface 
         self.utility = Utility()
 
-    def turn_on(self, effective_temperature=0.0):
+    def turn_on(self, effective_temperature=0.0, reason=""):
         """
         Goes through a decision making process to determine
         whether it's safe to trigger the relay controller
         """
         if self.db_interface.read_column(SharedDataColumns.DEVICE_STATUS.value) == DeviceStatus.ON.value:
             message = "PowerControlGateKeeper::turn_on, device is already on, nothing to do here"
-            logger.debug(message)
+            logger.warn(message)
             return States.ALREADY_ON
 
         last_turned_off: str = self.db_interface.read_column(SharedDataColumns.LAST_TURNED_OFF.value) 
         if not last_turned_off:
-            self.relay_controller.turn_on(effective_temperature)
+            self.relay_controller.turn_on(effective_temperature, reason=reason)
             return States.TURNED_ON
 
         current_time: datetime = datetime.datetime.now()
@@ -67,17 +67,17 @@ class PowerControlGateKeeper:
         if time_difference >= self.utility.get_safety_configs(
             DeviceConfigKeys.COOL_DOWN_PERIOD.value
         ):
-            self.relay_controller.turn_on(effective_temperature)
+            self.relay_controller.turn_on(effective_temperature, reason=reason)
             logger.warn("PowerControlGateKeeper::turn_on turning device on")
             return States.TURNED_ON
 
         else:
-            logger.debug(
+            logger.warn(
                 "PowerControlGateKeeper::turn_on Unable to turn device on, device is currently in a cool down stage"
             )
             return States.REQUEST_DENIED
 
-    def turn_off(self, effective_temperature=0.0):
+    def turn_off(self, effective_temperature=0.0, reason=""):
         """
         Goes through a decision making process to determine
         whether it's safe to trigger the relay controller
@@ -87,14 +87,14 @@ class PowerControlGateKeeper:
             )
     
         if self.db_interface.read_column(SharedDataColumns.DEVICE_STATUS.value) == DeviceStatus.OFF.value:
-            logger.debug(
+            logger.warn(
                 "PowerControlGateKeeper::turn_off, device is already off, nothing to do here"
             )
             return States.ALREADY_OFF
 
         last_turned_on: str = self.db_interface.read_column(SharedDataColumns.LAST_TURNED_ON.value) 
         if not last_turned_on:
-            self.relay_controller.turn_off(effective_temperature)
+            self.relay_controller.turn_off(effective_temperature, reason=reason)
             logger.warn(successful_log_msg)
             return States.TURNED_OFF
 
@@ -107,12 +107,12 @@ class PowerControlGateKeeper:
         if time_difference >= self.utility.get_safety_configs(
             DeviceConfigKeys.MINIMUM_ON_TIME.value
         ):
-            self.relay_controller.turn_off(effective_temperature)
+            self.relay_controller.turn_off(effective_temperature, reason=reason)
             logger.warn(successful_log_msg)
             return States.TURNED_OFF
 
         else:
-            logger.debug(
+            logger.warn(
                 "PowerControlGateKeeper::turn_off Unable to turn device off, device needs to be on for a minimum period of time"
             )
             return States.REQUEST_DENIED

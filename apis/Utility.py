@@ -73,7 +73,7 @@ class Utility:
             )
             return None
 
-    def record_state_transition(self, status: bool, effective_temperature:float): 
+    def record_state_transition(self, status: bool, effective_temperature:float, reason:str): 
         """
         Record state transition events by providing specific information
         """
@@ -84,6 +84,7 @@ class Utility:
             payload["state_change"] = "Device Turned Off"
         payload["effective_temperature"] = effective_temperature 
         payload["target_temperature"] = self.db_interface.read_column(SharedDataColumns.TARGET_TEMPERATURE.value)
+        payload["state_change_cause"] = reason
         payload["current_timestamp"] = datetime.datetime.now()
         payload["last_turned_on"] = self.db_interface.read_column(SharedDataColumns.LAST_TURNED_ON.value)
         payload["last_turned_off"] = self.db_interface.read_column(SharedDataColumns.LAST_TURNED_OFF.value)
