@@ -1,6 +1,8 @@
 import sqlite3  
 import logging
 
+from apis.DatabaseAccess.CreateTable import SharedDataColumns 
+
 DB_NAME = "DeviceHistory.db"
 SHARED_DATA_TABLE = "SharedData" 
 
@@ -10,58 +12,55 @@ class DbInterface:
     def __init__(self):
         self.db_name = DB_NAME
 
-    def update_temperature(self, temperature:float):
-        try:
+
+    def update_column(self, column_name, new_value): 
+        try: 
             conn = sqlite3.connect(self.db_name)
             cursor = conn.cursor()
 
            # Check if the table is empty
             cursor.execute(f'SELECT COUNT(*) FROM {SHARED_DATA_TABLE}')
-            count = cursor.fetchone()[0]
-
+            count = cursor.fetchone()[0] 
             if count == 0:
-                # Insert the initial temperature value
                 cursor.execute(f'''
-                    INSERT INTO {SHARED_DATA_TABLE} (id, last_temperature)
+                    INSERT INTO {SHARED_DATA_TABLE} (id, {column_name})
                     VALUES (1, ?)
-                ''', (temperature,))
+                ''', (new_value,)) 
             else:
-                # Update the temperature value in the database
                 cursor.execute(f'''
                     UPDATE {SHARED_DATA_TABLE}
-                    SET last_temperature = ?
+                    SET {column_name} = ?
                     WHERE id = 1
-                ''', (temperature,))
+                ''', (new_value,))
 
             conn.commit()
-            logger.info("Temperature value updated successfully.")
+            logger.info(f"{column_name} value updated successfully.")
 
         except sqlite3.Error as e:
-            logger.error("Error updating temperature value:", e)
+            logger.error(f"Error updating {column_name} value:", e)
 
         finally:
-            if conn:
+            if conn: 
                 conn.close()
 
 
-    def read_temperature(self):
+    def read_column(self, column_name):
         try:
             conn = sqlite3.connect(self.db_name)
             cursor = conn.cursor()
 
-            # Read the temperature value from the database
             cursor.execute(f'''
-                SELECT last_temperature
+                SELECT {column_name}
                 FROM {SHARED_DATA_TABLE}
                 WHERE id = 1
             ''')
-            temperature = cursor.fetchone()
+            value = cursor.fetchone()
 
-            if temperature: 
-                logger.info(f"temeprature read from db: {temperature[0]}")
-                return temperature[0]
+            if value: 
+                logger.info(f"value read from db: {value[0]}")
+                return value[0]
             else:
-                logger.warn("No temperature data found.")
+                logger.warn(f"No {column_name} data found.")
                 return None
 
         except sqlite3.Error as e:
@@ -72,10 +71,12 @@ class DbInterface:
             if conn:
                 conn.close()
 
+
 if __name__ == "__main__":
     # Example usage
     temperature_interface = DbInterface() 
-    written_temeprature = 19.6
-    temperature_interface.update_temperature(written_temeprature) 
-    temperature_value = temperature_interface.read_temperature() 
-    assert written_temeprature == temperature_value, "Temperature values don't match in the datbase"
+    written_temeprature = 0.9
+    temperature_interface.update_column(SharedDataColumns.LAST_TEMPERATURE.value,written_temeprature) 
+    temperature_value = temperature_interface.read_column(SharedDataColumns.LAST_TEMPERATURE.value) 
+    assert written_temeprature == temperature_value, "Temperature values don't match in the datbase" 
+    print ("all good son")
