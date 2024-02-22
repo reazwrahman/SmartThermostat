@@ -22,8 +22,8 @@ class TemperatureSensorSim(TemperatureSensor):
     """
     This class simulates the values from a temperature sensor.
     It uses a starting temperaure in celsius, a drop rate in temperature
-    (assuming it's winter) and a rise rate in temperature which will only kick in if the
-    heater device is on.
+    (assuming it's winter) and a rise rate in temperature which will only kick
+    in if the heater device is on.
     """
 
     def __init__(self):
@@ -46,8 +46,7 @@ class TemperatureSensorSim(TemperatureSensor):
                 config_data: dict = json.load(file)
         except Exception as e:
             logger.error(
-                f"TemperatureSensorSim::__read_input_file failed to read file: \
-                      {CONFIG_FILE}, exception: {str(e)}"
+                f"TemperatureSensorSim::__read_input_file failed to read file: {CONFIG_FILE}, exception: {str(e)}"
             )
             sys.exit()
 
@@ -57,8 +56,7 @@ class TemperatureSensorSim(TemperatureSensor):
             self.rise_rate = float(config_data.get("rise_rate"))
         except Exception as e:
             logger.error(
-                f"An error occured while trying to read simulation parameters, \
-                    recheck the data types. Exception details: {str(e)}"
+                f"An error occured while trying to read simulation parameters, recheck the data types. Exception details: {str(e)}"
             )
             sys.exit()
 
