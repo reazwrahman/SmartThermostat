@@ -18,13 +18,32 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-## TODO: write a function here to get user input on temperature, use args if
-### guideline supports it
 def get_target_temperature():
-    pass
+    input_is_invalid: bool = True
+    while input_is_invalid:
+        try:
+            target_temp = input(
+                "Please enter the desired temperature in Celsius (between 0 and 50): "
+            )
+            target_temp = float(target_temp)
+            if target_temp < 0 or target_temp > 50:
+                raise ValueError
+            input_is_invalid = False
+        except ValueError:
+            print(
+                "Entered value is either not convertible to a number or outside of the 0 to 50 range"
+            )
+
+        except Exception as e:
+            print(f"Unknown exception occured, exception: {str(e)}")
+
+    return target_temp
 
 
 if __name__ == "__main__":
+    ## get target temperature
+    target_temp: float = get_target_temperature()
+
     ## clean up directory
     if os.path.exists(os.path.join(os.getcwd(), STATE_CHANGE_LOGGER)):
         os.remove(STATE_CHANGE_LOGGER)
@@ -56,7 +75,7 @@ if __name__ == "__main__":
     Registrar.register_thread(sensor_thread)
 
     thermostat_thread: ThermoStatThread = ThermoStatThread(
-        target_temperature=22.0, db_interface=db_api
+        target_temperature=target_temp, db_interface=db_api
     )
     Registrar.register_thread(thermostat_thread)
 
