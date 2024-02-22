@@ -2,7 +2,6 @@ from threading import Thread
 import time
 import logging
 
-from apis.TemperatureSensorSim import TemperatureSensorSim
 from apis.DatabaseAccess.CreateTable import SharedDataColumns
 from apis.DatabaseAccess.DbInterface import DeviceStatus
 from apis.Registrar import Registrar

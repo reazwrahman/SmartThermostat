@@ -10,8 +10,8 @@ grand_parent_dir = os.path.dirname(parent_dir)
 sys.path.append(parent_dir)
 sys.path.append(grand_parent_dir)
 
-from apis.RelayController import RelayController
-from apis.TemperatureSensor import TemperatureSensor
+from apis.Relays.RelayController import RelayController
+from apis.Sensors.TemperatureSensor import TemperatureSensor
 
 logger = logging.getLogger(__name__)
 

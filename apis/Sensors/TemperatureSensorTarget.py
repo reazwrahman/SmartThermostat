@@ -1,4 +1,4 @@
-from apis.TemperatureSensor import TemperatureSensor
+from apis.Sensors.TemperatureSensor import TemperatureSensor
 
 
 class TemperatureSensorTarget(TemperatureSensor):

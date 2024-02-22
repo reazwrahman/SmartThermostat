@@ -4,7 +4,7 @@ import logging
 import datetime
 import os
 
-from apis.PowerControlGateKeeper import PowerControlGateKeeper, States
+from apis.Relays.PowerControlGateKeeper import PowerControlGateKeeper, States
 from apis.DatabaseAccess.CreateTable import SharedDataColumns
 from apis.DatabaseAccess.DbInterface import DbInterface
 from apis.Utility import Utility

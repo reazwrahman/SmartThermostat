@@ -10,8 +10,6 @@ grand_parent_dir = os.path.dirname(parent_dir)
 sys.path.append(parent_dir)
 sys.path.append(grand_parent_dir)
 
-from apis.RelayControllerTarget import RelayControllerTarget
-from apis.RelayControllerSim import RelayControllerSim
 from apis.Utility import Utility
 from apis.DatabaseAccess.CreateTable import SharedDataColumns
 from apis.DatabaseAccess.DbInterface import DbInterface, DeviceStatus

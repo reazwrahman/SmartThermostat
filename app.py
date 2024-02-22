@@ -6,10 +6,10 @@ from ThermoStatThread import ThermoStatThread
 from apis.DatabaseAccess.CreateTable import CreateTable
 from apis.DatabaseAccess.DbInterface import DbInterface
 from apis.Registrar import Registrar, RunningModes
-from apis.TemperatureSensorSim import TemperatureSensorSim
-from apis.TemperatureSensorTarget import TemperatureSensorTarget
-from apis.RelayControllerSim import RelayControllerSim
-from apis.RelayControllerTarget import RelayControllerTarget
+from apis.Sensors.TemperatureSensorSim import TemperatureSensorSim
+from apis.Sensors.TemperatureSensorTarget import TemperatureSensorTarget
+from apis.Relays.RelayControllerSim import RelayControllerSim
+from apis.Relays.RelayControllerTarget import RelayControllerTarget
 
 STATE_CHANGE_LOGGER = "state_transition_record.txt"
 DATABASE = "DeviceHistory.db"

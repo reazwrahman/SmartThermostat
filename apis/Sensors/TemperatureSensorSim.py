@@ -10,12 +10,12 @@ grand_parent_dir = os.path.dirname(parent_dir)
 sys.path.append(parent_dir)
 sys.path.append(grand_parent_dir)
 
-from apis.TemperatureSensor import TemperatureSensor
+from apis.Sensors.TemperatureSensor import TemperatureSensor
 
 logger = logging.getLogger(__name__)
 
 
-CONFIG_FILE = "apis/simulation_parameters.json"
+CONFIG_FILE = "apis/sensors/simulation_parameters.json"
 
 
 class TemperatureSensorSim(TemperatureSensor):
