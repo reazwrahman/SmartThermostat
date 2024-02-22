@@ -9,7 +9,7 @@ grand_parent_dir = os.path.dirname(parent_dir)
 sys.path.append(parent_dir)
 sys.path.append(grand_parent_dir)
 
-from apis.DatabaseAccess.CreateTable import SharedDataColumns
+from apis.DatabaseAccess.DbTables import SharedDataColumns
 
 DB_NAME = "DeviceHistory.db"
 SHARED_DATA_TABLE = "SharedData"

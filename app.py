@@ -3,7 +3,7 @@ import os
 
 from TemperatureSensorThread import TemperatureSensorThread
 from ThermoStatThread import ThermoStatThread
-from apis.DatabaseAccess.CreateTable import CreateTable
+from apis.DatabaseAccess.DbTables import DbTables
 from apis.DatabaseAccess.DbInterface import DbInterface
 from apis.Registrar import Registrar, RunningModes
 from apis.Sensors.TemperatureSensorSim import TemperatureSensorSim
@@ -52,8 +52,8 @@ if __name__ == "__main__":
         os.remove(DATABASE)
 
     ## prepare database
-    table_creator = CreateTable()
-    table_creator.create_shared_datatable()
+    table_creator = DbTables()
+    table_creator.create_shared_data_table()
     db_api = DbInterface()
 
     ## register all sensors

@@ -5,7 +5,7 @@ import datetime
 import os
 
 from apis.Relays.PowerControlGateKeeper import PowerControlGateKeeper, States
-from apis.DatabaseAccess.CreateTable import SharedDataColumns
+from apis.DatabaseAccess.DbTables import SharedDataColumns
 from apis.DatabaseAccess.DbInterface import DbInterface
 from apis.Utility import Utility
 from apis.Config import MAXIMUM_ON_TIME
@@ -48,8 +48,14 @@ class ThermoStatThread(Thread):
         at regular intervals, take running average and trigger relay.
         """
         while self.keep_me_alive:
-            self.current_temp: float = self.db_interface.read_column(
-                SharedDataColumns.LAST_TEMPERATURE.value
+            (
+                self.current_temp,
+                self.target_temp,
+            ) = self.db_interface.read_multiple_columns(
+                (
+                    SharedDataColumns.LAST_TEMPERATURE.value,
+                    SharedDataColumns.TARGET_TEMPERATURE.value,
+                )
             )
             status = self.__check_device_on_time()
             if status != States.TURNED_OFF:

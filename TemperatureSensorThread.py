@@ -2,7 +2,7 @@ from threading import Thread
 import time
 import logging
 
-from apis.DatabaseAccess.CreateTable import SharedDataColumns
+from apis.DatabaseAccess.DbTables import SharedDataColumns
 from apis.Config import DeviceStatus
 from apis.Registrar import Registrar
 from apis.Config import RUNNING_MODE
