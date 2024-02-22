@@ -18,7 +18,6 @@ from apis.Registrar import RunningModes
 
 logger = logging.getLogger(__name__)
 
-SAFETY_CONFIGS_FILE = "apis/safety_configs.json"
 STATE_CHANGE_LOGGER = "state_transition_record.txt"
 MAX_RECORDS_TO_STORE = 20
 
