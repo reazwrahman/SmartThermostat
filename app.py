@@ -16,7 +16,7 @@ if os.path.exists(os.path.join(os.getcwd(), STATE_CHANGE_LOGGER)):
 if os.path.exists(os.path.join(os.getcwd(), DATABASE)):
     os.remove(DATABASE)
 
-logging.basicConfig(level=logging.WARN)
+logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 table_creator = CreateTable()
