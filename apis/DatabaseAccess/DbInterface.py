@@ -10,11 +10,6 @@ SHARED_DATA_TABLE = "SharedData"
 logger = logging.getLogger(__name__)
 
 
-class DeviceStatus(Enum):
-    ON = "ON"
-    OFF = "OFF"
-
-
 class DbInterface:
     """
     An API to interact with the database

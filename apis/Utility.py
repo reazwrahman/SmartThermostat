@@ -12,7 +12,8 @@ sys.path.append(parent_dir)
 sys.path.append(grand_parent_dir)
 
 from apis.DatabaseAccess.CreateTable import SharedDataColumns
-from apis.DatabaseAccess.DbInterface import DbInterface, DeviceStatus
+from apis.DatabaseAccess.DbInterface import DbInterface
+from apis.Config import DeviceStatus
 from apis.Registrar import RunningModes
 
 logger = logging.getLogger(__name__)

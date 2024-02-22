@@ -82,7 +82,7 @@ class ThermoStatThread(Thread):
             )
             current_time: datetime = datetime.datetime.now()
             time_difference = (current_time - last_turned_on).total_seconds() / 60
-            if time_difference >= self.utility.get_safety_configs(MAXIMUM_ON_TIME):
+            if time_difference >= MAXIMUM_ON_TIME:
                 logger.warn(
                     "ThermoStatThread::__check_heater_on_time Device's maximum on time has exceeded"
                 )

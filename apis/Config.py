@@ -1,5 +1,6 @@
 import os
 import sys
+from enum import Enum
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(current_dir)
@@ -11,6 +12,11 @@ from apis.Registrar import RunningModes
 
 RUNNING_MODE = RunningModes.SIM  ## the mode we are running the application in
 
-MINIMUM_ON_TIME = 2  # minutes
-COOL_DOWN_PERIOD = 5  # minutes
-MAXIMUM_ON_TIME = 10  # minutes
+MINIMUM_ON_TIME = 0.5  # minutes
+COOL_DOWN_PERIOD = 0.5  # minutes
+MAXIMUM_ON_TIME = 1  # minutes
+
+
+class DeviceStatus(Enum):
+    ON = "ON"
+    OFF = "OFF"

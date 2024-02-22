@@ -3,7 +3,7 @@ import time
 import logging
 
 from apis.DatabaseAccess.CreateTable import SharedDataColumns
-from apis.DatabaseAccess.DbInterface import DeviceStatus
+from apis.Config import DeviceStatus
 from apis.Registrar import Registrar
 from apis.Config import RUNNING_MODE
 

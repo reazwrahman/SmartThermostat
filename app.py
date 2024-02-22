@@ -14,7 +14,7 @@ from apis.Relays.RelayControllerTarget import RelayControllerTarget
 STATE_CHANGE_LOGGER = "state_transition_record.txt"
 DATABASE = "DeviceHistory.db"
 
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 

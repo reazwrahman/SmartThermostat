@@ -12,7 +12,8 @@ sys.path.append(grand_parent_dir)
 from apis.Relays.RelayController import RelayController
 from apis.Utility import Utility
 from apis.DatabaseAccess.CreateTable import SharedDataColumns
-from apis.DatabaseAccess.DbInterface import DbInterface, DeviceStatus
+from apis.DatabaseAccess.DbInterface import DbInterface
+from apis.Config import DeviceStatus
 
 logger = logging.getLogger(__name__)
 

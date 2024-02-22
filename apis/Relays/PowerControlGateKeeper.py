@@ -12,7 +12,8 @@ sys.path.append(grand_parent_dir)
 
 from apis.Utility import Utility
 from apis.DatabaseAccess.CreateTable import SharedDataColumns
-from apis.DatabaseAccess.DbInterface import DbInterface, DeviceStatus
+from apis.DatabaseAccess.DbInterface import DbInterface
+from apis.Config import DeviceStatus
 from apis.Registrar import Registrar
 from apis.Config import RUNNING_MODE, MINIMUM_ON_TIME, COOL_DOWN_PERIOD
 
