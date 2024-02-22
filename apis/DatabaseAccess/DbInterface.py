@@ -108,4 +108,4 @@ if __name__ == "__main__":
     assert (
         written_temeprature == temperature_value
     ), "Temperature values don't match in the datbase"
-    print("all good son")
+    print("all tests passed")
