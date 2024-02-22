@@ -5,49 +5,65 @@ from TemperatureSensorThread import TemperatureSensorThread
 from ThermoStatThread import ThermoStatThread
 from apis.DatabaseAccess.CreateTable import CreateTable
 from apis.DatabaseAccess.DbInterface import DbInterface
+from apis.Registrar import Registrar, RunningModes
+from apis.TemperatureSensorSim import TemperatureSensorSim
+from apis.TemperatureSensorTarget import TemperatureSensorTarget
+from apis.RelayControllerSim import RelayControllerSim
+from apis.RelayControllerTarget import RelayControllerTarget
 
 STATE_CHANGE_LOGGER = "state_transition_record.txt"
 DATABASE = "DeviceHistory.db"
 
-logging.basicConfig(level=logging.WARN)
+logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
+
 
 ## TODO: write a function here to get user input on temperature, use args if
 ### guideline supports it
-def get_target_temperature(): 
+def get_target_temperature():
     pass
 
-def register_threads(target_temperature, db_api:DbInterface):
 
-    # set guarantees that each thread can only be registered once
-    registered_threads:set = set() 
-
-    sensor_thread: TemperatureSensorThread = TemperatureSensorThread(db_interface=db_api)
-
-    thermostat_thread: ThermoStatThread = ThermoStatThread(
-        target_temperature=target_temperature, db_interface=db_api
-    )
-    registered_threads.add(sensor_thread) 
-    registered_threads.add(thermostat_thread)  
-
-    return registered_threads
-
-if __name__ == "__main__":  
+if __name__ == "__main__":
+    ## clean up directory
     if os.path.exists(os.path.join(os.getcwd(), STATE_CHANGE_LOGGER)):
         os.remove(STATE_CHANGE_LOGGER)
 
     if os.path.exists(os.path.join(os.getcwd(), DATABASE)):
-        os.remove(DATABASE)  
-    
+        os.remove(DATABASE)
+
+    ## prepare database
     table_creator = CreateTable()
     table_creator.create_shared_datatable()
     db_api = DbInterface()
 
-    target_temperature:float = get_target_temperature()
-    registered_threads:set = register_threads(22, db_api)
+    ## register all sensors
+    simulation_sensor = TemperatureSensorSim()
+    target_sensor = TemperatureSensorTarget()
+    Registrar.register_temperature_sensor(simulation_sensor, RunningModes.SIM)
+    Registrar.register_temperature_sensor(target_sensor, RunningModes.TARGET)
 
-    for each_thread in registered_threads: 
-        each_thread.start() 
+    ## register all relay controllers
+    simulation_relay = RelayControllerSim(db_interface=db_api)
+    target_relay = RelayControllerTarget()
+    Registrar.register_relay_controllers(simulation_relay, RunningModes.SIM)
+    Registrar.register_relay_controllers(target_relay, RunningModes.TARGET)
+
+    ## register all threads
+    sensor_thread: TemperatureSensorThread = TemperatureSensorThread(
+        db_interface=db_api
+    )
+    Registrar.register_thread(sensor_thread)
+
+    thermostat_thread: ThermoStatThread = ThermoStatThread(
+        target_temperature=22.0, db_interface=db_api
+    )
+    Registrar.register_thread(thermostat_thread)
+
+    ## start all threads
+    registered_threads: set = Registrar.get_registered_threads()
+    for each_thread in registered_threads:
+        each_thread.start()
 
     for each_thread in registered_threads:
         each_thread.join()

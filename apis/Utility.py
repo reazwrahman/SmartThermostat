@@ -13,18 +13,13 @@ sys.path.append(grand_parent_dir)
 
 from apis.DatabaseAccess.CreateTable import SharedDataColumns
 from apis.DatabaseAccess.DbInterface import DbInterface, DeviceStatus
+from apis.Registrar import RunningModes
 
 logger = logging.getLogger(__name__)
 
 SAFETY_CONFIGS_FILE = "apis/safety_configs.json"
 STATE_CHANGE_LOGGER = "state_transition_record.txt"
 MAX_RECORDS_TO_STORE = 20
-
-
-class DeviceConfigKeys(Enum):
-    MINIMUM_ON_TIME = "MINIMUM_ON_TIME"
-    COOL_DOWN_PERIOD = "COOL_DOWN_PERIOD"
-    MAXIMUM_ON_TIME = "MAXIMUM_ON_TIME"
 
 
 class Utility:
@@ -37,41 +32,7 @@ class Utility:
 
     def __init__(self):
         self.__safety_configs: dict = dict()
-        self.__read_safety_configs()
         self.db_interface = DbInterface()
-
-    def __read_safety_configs(self):
-        """
-        Reads a user defined json file to set the safety config parameters
-        """
-        try:
-            with open(SAFETY_CONFIGS_FILE, "r") as file:
-                config_data: dict = json.load(file)
-        except Exception as e:
-            logger.error(
-                f"Utility::__read_safety_configs failed to read file: {SAFETY_CONFIGS_FILE}, exception: {str(e)}"
-            )
-            sys.exit()
-
-        try:
-            self.__safety_configs = config_data
-        except Exception as e:
-            logger.error(
-                f"An error occured while trying to {SAFETY_CONFIGS_FILE}, recheck the data types. Exception details: {str(e)}"
-            )
-            sys.exit()
-
-    def get_safety_configs(self, data_key: str):
-        """
-        get safety config value by providing a config key
-        """
-        if data_key in self.__safety_configs:
-            return self.__safety_configs[data_key]
-        else:
-            logger.error(
-                f"Utility::get_safety_configs requested key does not exist {data_key}"
-            )
-            return None
 
     def record_state_transition(
         self, status: bool, effective_temperature: float, reason: str
@@ -159,17 +120,6 @@ class Utility:
 
 if __name__ == "__main__":
     utility = Utility()
-
-    ## test read config data capability
-    assert (
-        type(utility.get_safety_configs(DeviceConfigKeys.MAXIMUM_ON_TIME.value)) == int
-    ), "Safety configs values are not loaded properly"
-    assert (
-        type(utility.get_safety_configs(DeviceConfigKeys.COOL_DOWN_PERIOD.value)) == int
-    ), "Safety configs values are not loaded properly"
-    assert (
-        type(utility.get_safety_configs(DeviceConfigKeys.MINIMUM_ON_TIME.value)) == int
-    ), "Safety configs values are not loaded properly"
 
     ## test write to file and delete older record capability
     test_payload = {"test_id": 1, "event": "on"}

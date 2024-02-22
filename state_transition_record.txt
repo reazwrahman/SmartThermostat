@@ -1,9 +1,0 @@
-state_change: Device Turned On 
-effective_temperature: 11.92 
-target_temperature: 22.0 
-state_change_cause: Current Temperature is below target temperature 
-current_timestamp: 2024-02-21 21:56:27.364100 
-last_turned_on: 2024-02-21 21:56:27.362211 
-last_turned_off: None 
-on_for_minutes: 0.0 
-
