@@ -31,6 +31,7 @@ class ThermoStatThread(Thread):
         self.target_temp = target_temperature
         self.thread_name = thread_name
         self.keep_me_alive = True
+        self.current_temperature: float = None
         self.db_interface: DbInterface = db_interface
         self.utility = Utility()
 
@@ -47,20 +48,20 @@ class ThermoStatThread(Thread):
         at regular intervals, take running average and trigger relay.
         """
         while self.keep_me_alive:
+            self.current_temp: float = self.db_interface.read_column(
+                SharedDataColumns.LAST_TEMPERATURE.value
+            )
             status = self.__check_device_on_time()
             if status != States.TURNED_OFF:
-                current_temp: float = self.db_interface.read_column(
-                    SharedDataColumns.LAST_TEMPERATURE.value
-                )
-                if current_temp:
-                    if current_temp <= self.target_temp:
+                if self.current_temp:
+                    if self.current_temp <= self.target_temp:
                         status = self.__gate_keeper.turn_on(
-                            effective_temperature=current_temp,
+                            effective_temperature=self.current_temp,
                             reason="Current Temperature is below target temperature",
                         )
                     else:
                         status = self.__gate_keeper.turn_off(
-                            effective_temperature=current_temp,
+                            effective_temperature=self.current_temp,
                             reason="Current Temperature is above target temperature",
                         )
 
@@ -87,7 +88,7 @@ class ThermoStatThread(Thread):
                     "ThermoStatThread::__check_heater_on_time Device's maximum on time has exceeded"
                 )
                 status = self.__gate_keeper.turn_off(
-                    effective_temperature=0.0,
+                    effective_temperature=self.current_temp,
                     reason="Device's maximum on time has exceeded",
                 )
                 return status

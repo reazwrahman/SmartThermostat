@@ -13,6 +13,7 @@ sys.path.append(grand_parent_dir)
 from apis.Utility import Utility
 from apis.DatabaseAccess.CreateTable import SharedDataColumns
 from apis.DatabaseAccess.DbInterface import DbInterface
+from apis.Relays.RelayController import RelayController
 from apis.Config import DeviceStatus
 from apis.Registrar import Registrar
 from apis.Config import RUNNING_MODE, MINIMUM_ON_TIME, COOL_DOWN_PERIOD
@@ -37,7 +38,9 @@ class PowerControlGateKeeper:
     """
 
     def __init__(self, db_interface: DbInterface, running_mode="Simulation"):
-        self.relay_controller = Registrar.get_relay_controllers(RUNNING_MODE)
+        self.relay_controller: RelayController = Registrar.get_relay_controllers(
+            RUNNING_MODE
+        )
         self.db_interface: DbInterface = db_interface
         self.utility = Utility()
 

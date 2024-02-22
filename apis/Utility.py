@@ -32,32 +32,41 @@ class Utility:
     state_transition_counter = 0  # static attribute to track total events recorded
 
     def __init__(self):
-        self.__safety_configs: dict = dict()
         self.db_interface = DbInterface()
 
-    def record_state_transition(
-        self, status: bool, effective_temperature: float, reason: str
-    ):
+    def record_state_transition(self, state_data: tuple):
         """
         Record state transition events by providing specific information
         """
+        status: bool = state_data[0]
+        effective_temperature: float = state_data[1]
+        reason: str = state_data[2]
+
+        ## read required values from database
+        query_result: tuple = self.db_interface.read_multiple_columns(
+            (
+                SharedDataColumns.TARGET_TEMPERATURE.value,
+                SharedDataColumns.LAST_TURNED_ON.value,
+                SharedDataColumns.LAST_TURNED_OFF.value,
+            )
+        )
         payload = dict()
+
+        ## populate payload from input state information
         if status:
             payload["state_change"] = "Device Turned On"
         else:
             payload["state_change"] = "Device Turned Off"
         payload["effective_temperature"] = effective_temperature
-        payload["target_temperature"] = self.db_interface.read_column(
-            SharedDataColumns.TARGET_TEMPERATURE.value
-        )
         payload["state_change_cause"] = reason
+
+        ## populate payload from database
+        payload["target_temperature"] = query_result[0]
+        payload["last_turned_on"] = query_result[1]
+        payload["last_turned_off"] = query_result[2]
+
+        ## populate payload with extra processing
         payload["current_timestamp"] = datetime.datetime.now()
-        payload["last_turned_on"] = self.db_interface.read_column(
-            SharedDataColumns.LAST_TURNED_ON.value
-        )
-        payload["last_turned_off"] = self.db_interface.read_column(
-            SharedDataColumns.LAST_TURNED_OFF.value
-        )
         if payload["last_turned_on"]:
             last_turned_on: datetime = datetime.datetime.strptime(
                 payload["last_turned_on"], "%Y-%m-%d %H:%M:%S.%f"

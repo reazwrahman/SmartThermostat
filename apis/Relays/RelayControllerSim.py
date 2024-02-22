@@ -47,11 +47,8 @@ class RelayControllerSim(RelayController):
             self.db_interface.update_column(
                 SharedDataColumns.LAST_TURNED_ON.value, datetime.datetime.now()
             )
-            self.utility.record_state_transition(
-                status=self.current_state,
-                effective_temperature=effective_temperature,
-                reason=reason,
-            )
+            state_info: tuple = (self.current_state, effective_temperature, reason)
+            self.utility.record_state_transition(state_info)
             return True
         except Exception as e:
             logger.error(
@@ -71,11 +68,8 @@ class RelayControllerSim(RelayController):
             self.db_interface.update_column(
                 SharedDataColumns.LAST_TURNED_OFF.value, datetime.datetime.now()
             )
-            self.utility.record_state_transition(
-                status=self.current_state,
-                effective_temperature=effective_temperature,
-                reason=reason,
-            )
+            state_info: tuple = (self.current_state, effective_temperature, reason)
+            self.utility.record_state_transition(state_info)
             return True
         except Exception as e:
             logger.error(
