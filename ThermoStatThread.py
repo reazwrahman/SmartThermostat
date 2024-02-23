@@ -76,7 +76,8 @@ class ThermoStatThread(Thread):
     def terminate(self):
         """
         terminates the thread, inherited from base class
-        """
+        """  
+        self.keep_me_alive = False
         logging.warn(f"{self.thread_name} is terminated")
 
     def __check_device_on_time(self):

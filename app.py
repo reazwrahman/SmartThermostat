@@ -49,7 +49,8 @@ def delete_file(file_name):
     """
     try:
         if os.path.exists(os.path.join(os.getcwd(), file_name)):
-            os.remove(file_name)
+            os.remove(file_name) 
+            logger.info(f"{file_name} deleted")
         return True
     except Exception as e:
         logger.error(f"Unable to delete file {file_name}, exception: {str(e)}")
