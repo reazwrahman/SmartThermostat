@@ -41,22 +41,19 @@ Input file: apis/simulation_parameters.json
 
 output file: state_transition_record.txt (gets generated at runtime)
 
-5) for requirements below: use the apis/Utility.py file. I have written it 
-in a way so that it meets all the requirements.  
+5) for requirements below: use the apis/Utility.py file. I have written it in a way so that it meets all the requirements.  
 
-    a) 1 user-defined class. The class must be imported by your main program from 
-        a separate file and have the following required structures. [DONE]
 
-    b) at least 1 private and 2 public self class attributes [DONE]
+# A summary of the project and the motivation behind it 
 
-    c) at least 1 private and 2 public class methods that take arguments, return 
-        values and are used by your program [DONE] 
+I live in an old single family house in New York City. The boiler heating system in the house is far from ideal in the winter. Either it gets unbearably hot in my room during the day to do any work or extremely cold at night making me wake up in the middle of the night. 
 
-    d) an init() class method that takes at least 1 argument [DONE]
+I have an electric heater in my room which I can turn on and off manually to get the temperature I want in the room but the problem is I don’t want to wake up in the middle of the night to turn on/off this device. My solution is to automatically control the heater based on the current temperature in the room. 
 
-    e) a repr() or str() class method [DONE]
+In order to implement this solution, I would need a temperature sensor, a power relay to control the power supply to the electric heater and a microprocessor to run all the logic. For the microprocessor piece I have chosen a Raspberry Pi (https://www.raspberrypi.com/). Raspberry Pi runs on Python and is extremely popular among hobby Python developers. 
 
-    f) a magic class method (not one of the methods listed above) [DONE]
+My plan is to divide the project to have two different modes: 1) I am calling the first one “target” state where everything will be running on actual hardware (microcontroller, sensor and relay) and 2) the simulation mode where I can run the program on any computer and test out the fundamental logic.   
 
-    g) Provide 2 unit tests that prove two of your public class methods work as expected.
-        The tests should evaluate results using assert statements. [DONE]
+My first goal is to get the simulation mode running and this is what is particular codebase does. I have stubbed out the Target version of the TemperatureSensor and RelayController objects. 
+
+The program produces logs which can be used to validate the behavior of each component, and it also produces a state_transition_record.txt file that records the last 20 state transtion (heater going from on to off or vice versa). These two outputs are sufficient to validate the program behavior. The program also uses a DeviceHistory.db database to store the shared data that's used and updated by multiple concurrent threads.
