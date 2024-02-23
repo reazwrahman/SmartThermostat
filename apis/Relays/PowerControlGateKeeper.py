@@ -37,7 +37,7 @@ class PowerControlGateKeeper:
     outlined in the configs.
     """
 
-    def __init__(self, db_interface: DbInterface, running_mode="Simulation"):
+    def __init__(self, db_interface: DbInterface):
         self.relay_controller: RelayController = Registrar.get_relay_controllers(
             RUNNING_MODE
         )

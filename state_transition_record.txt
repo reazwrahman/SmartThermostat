@@ -37,3 +37,153 @@ current_timestamp: 2024-02-22 17:37:31.581530
 on_for_minutes: 1.0 
 off_for_minutes: 0.0 
 
+state_change: Device Turned On 
+effective_temperature: 10.0 
+state_change_cause: Current Temperature is below target temperature 
+target_temperature: 10.0 
+last_turned_on: 2024-02-22 17:38:51.642344 
+last_turned_off: 2024-02-22 17:37:31.580038 
+current_timestamp: 2024-02-22 17:38:51.644679 
+on_for_minutes: 0.0 
+off_for_minutes: 1.33 
+
+state_change: Device Turned Off 
+effective_temperature: 10.37 
+state_change_cause: Current Temperature is above target temperature 
+target_temperature: 10.0 
+last_turned_on: 2024-02-22 17:38:51.642344 
+last_turned_off: 2024-02-22 17:39:51.705170 
+current_timestamp: 2024-02-22 17:39:51.707568 
+on_for_minutes: 1.0 
+off_for_minutes: 0.0 
+
+state_change: Device Turned On 
+effective_temperature: 9.54 
+state_change_cause: Current Temperature is below target temperature 
+target_temperature: 10.0 
+last_turned_on: 2024-02-22 17:40:21.753592 
+last_turned_off: 2024-02-22 17:39:51.705170 
+current_timestamp: 2024-02-22 17:40:21.756501 
+on_for_minutes: 0.0 
+off_for_minutes: 0.5 
+
+state_change: Device Turned Off 
+effective_temperature: 10.01 
+state_change_cause: Current Temperature is above target temperature 
+target_temperature: 10.0 
+last_turned_on: 2024-02-22 17:40:21.753592 
+last_turned_off: 2024-02-22 17:41:31.823763 
+current_timestamp: 2024-02-22 17:41:31.825034 
+on_for_minutes: 1.17 
+off_for_minutes: 0.0 
+
+state_change: Device Turned On 
+effective_temperature: 9.14 
+state_change_cause: Current Temperature is below target temperature 
+target_temperature: 10.0 
+last_turned_on: 2024-02-22 17:42:01.848795 
+last_turned_off: 2024-02-22 17:41:31.823763 
+current_timestamp: 2024-02-22 17:42:01.851208 
+on_for_minutes: 0.0 
+off_for_minutes: 0.5 
+
+state_change: Device Turned Off 
+effective_temperature: 10.06 
+state_change_cause: Current Temperature is above target temperature 
+target_temperature: 10.0 
+last_turned_on: 2024-02-22 17:42:01.848795 
+last_turned_off: 2024-02-22 17:43:51.926812 
+current_timestamp: 2024-02-22 17:43:51.930327 
+on_for_minutes: 1.83 
+off_for_minutes: 0.0 
+
+state_change: Device Turned On 
+effective_temperature: 9.18 
+state_change_cause: Current Temperature is below target temperature 
+target_temperature: 10.0 
+last_turned_on: 2024-02-22 17:44:21.951631 
+last_turned_off: 2024-02-22 17:43:51.926812 
+current_timestamp: 2024-02-22 17:44:21.954460 
+on_for_minutes: 0.0 
+off_for_minutes: 0.5 
+
+state_change: Device Turned Off 
+effective_temperature: 10.1 
+state_change_cause: Current Temperature is above target temperature 
+target_temperature: 10.0 
+last_turned_on: 2024-02-22 17:44:21.951631 
+last_turned_off: 2024-02-22 17:46:12.018659 
+current_timestamp: 2024-02-22 17:46:12.020278 
+on_for_minutes: 1.83 
+off_for_minutes: 0.0 
+
+state_change: Device Turned On 
+effective_temperature: 9.18 
+state_change_cause: Current Temperature is below target temperature 
+target_temperature: 10.0 
+last_turned_on: 2024-02-22 17:46:42.044793 
+last_turned_off: 2024-02-22 17:46:12.018659 
+current_timestamp: 2024-02-22 17:46:42.046835 
+on_for_minutes: 0.0 
+off_for_minutes: 0.5 
+
+state_change: Device Turned Off 
+effective_temperature: 10.19 
+state_change_cause: Device's maximum on time has exceeded 
+target_temperature: 13.0 
+last_turned_on: 2024-02-22 17:46:42.044793 
+last_turned_off: 2024-02-22 17:48:42.124945 
+current_timestamp: 2024-02-22 17:48:42.125777 
+on_for_minutes: 2.0 
+off_for_minutes: 0.0 
+
+state_change: Device Turned On 
+effective_temperature: 9.39 
+state_change_cause: Current Temperature is below target temperature 
+target_temperature: 13.0 
+last_turned_on: 2024-02-22 17:49:12.152250 
+last_turned_off: 2024-02-22 17:48:42.124945 
+current_timestamp: 2024-02-22 17:49:12.153626 
+on_for_minutes: 0.0 
+off_for_minutes: 0.5 
+
+state_change: Device Turned Off 
+effective_temperature: 10.32 
+state_change_cause: Device's maximum on time has exceeded 
+target_temperature: 13.0 
+last_turned_on: 2024-02-22 17:49:12.152250 
+last_turned_off: 2024-02-22 17:51:12.249367 
+current_timestamp: 2024-02-22 17:51:12.251894 
+on_for_minutes: 2.0 
+off_for_minutes: 0.0 
+
+state_change: Device Turned On 
+effective_temperature: 9.46 
+state_change_cause: Current Temperature is below target temperature 
+target_temperature: 13.0 
+last_turned_on: 2024-02-22 17:51:42.283820 
+last_turned_off: 2024-02-22 17:51:12.249367 
+current_timestamp: 2024-02-22 17:51:42.287342 
+on_for_minutes: 0.0 
+off_for_minutes: 0.5 
+
+state_change: Device Turned Off 
+effective_temperature: 10.44 
+state_change_cause: Device's maximum on time has exceeded 
+target_temperature: 13.0 
+last_turned_on: 2024-02-22 17:51:42.283820 
+last_turned_off: 2024-02-22 17:53:42.401790 
+current_timestamp: 2024-02-22 17:53:42.407427 
+on_for_minutes: 2.0 
+off_for_minutes: 0.0 
+
+state_change: Device Turned On 
+effective_temperature: 9.57 
+state_change_cause: Current Temperature is below target temperature 
+target_temperature: 13.0 
+last_turned_on: 2024-02-22 17:54:12.441287 
+last_turned_off: 2024-02-22 17:53:42.401790 
+current_timestamp: 2024-02-22 17:54:12.443849 
+on_for_minutes: 0.0 
+off_for_minutes: 0.5 
+
