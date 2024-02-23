@@ -13,7 +13,10 @@ in one shot:
 
 4) Do not try to run any unit test directly from that file's directory, 
 this will cause module importing error. The project was written in a way 
-so that everything is run from the root. 
+so that everything is run from the root.  
+
+5) Github repository for this project: https://github.com/reazwrahman/SmartThermostat
+
 
 
 # Helpful tips for grading 
@@ -31,9 +34,14 @@ These are kinda spread across the codebase, a global search should do the trick.
 
 3) To meet the requirement for 1 user-defined function: 
 look at the two functions in the app.py file: ```get_target_temperature``` 
-and ```delete_file``` 
+and ```delete_file```  
 
-4) for requirements below: use the apis/Utility.py file. I have written it 
+4) 1 input and/or output file (include input data with your project) 
+Input file: apis/simulation_parameters.json
+
+output file: state_transition_record.txt (gets generated at runtime)
+
+5) for requirements below: use the apis/Utility.py file. I have written it 
 in a way so that it meets all the requirements.  
 
     a) 1 user-defined class. The class must be imported by your main program from 

@@ -46,7 +46,7 @@ class Utility:
         """
         returns the core purpose of this class
         """
-        return "Provides General utility services to other components in this smart thermostat program."
+        return "Provides general utility services to other components in this smart thermostat program."
 
     def __len__(self):
         """
@@ -159,11 +159,10 @@ class Utility:
             Utility.state_transition_counter = 0  # restart counter
 
 
-if __name__ == "__main__":
+if __name__ == "__main__": 
     utility = Utility(
         state_record_file=STATE_CHANGE_LOGGER, max_capacity=MAX_RECORDS_TO_STORE
     )
-
     ## test get time delta
     time_now = datetime.datetime.now()
     delta = 5
