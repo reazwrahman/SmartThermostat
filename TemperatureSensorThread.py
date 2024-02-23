@@ -53,6 +53,6 @@ class TemperatureSensorThread(Thread):
     def terminate(self):
         """
         terminates the thread, inherited from base class
-        """ 
+        """
         self.keep_me_alive = False
         logging.info(f"{self.thread_name} is terminated")

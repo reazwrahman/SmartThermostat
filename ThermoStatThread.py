@@ -76,7 +76,7 @@ class ThermoStatThread(Thread):
     def terminate(self):
         """
         terminates the thread, inherited from base class
-        """  
+        """
         self.keep_me_alive = False
         logging.warn(f"{self.thread_name} is terminated")
 
@@ -88,11 +88,7 @@ class ThermoStatThread(Thread):
             SharedDataColumns.LAST_TURNED_ON.value
         )
         if last_turned_on:
-            last_turned_on: datetime = datetime.datetime.strptime(
-                last_turned_on, "%Y-%m-%d %H:%M:%S.%f"
-            )
-            current_time: datetime = datetime.datetime.now()
-            time_difference = (current_time - last_turned_on).total_seconds() / 60
+            time_difference = self.utility.get_time_delta(last_turned_on)
             if time_difference >= MAXIMUM_ON_TIME:
                 logger.warn(
                     "ThermoStatThread::__check_heater_on_time Device's maximum on time has exceeded"

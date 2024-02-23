@@ -18,10 +18,17 @@ class SharedDataColumns(Enum):
 
 
 class DbTables:
+    """
+    Represents the tables in the Databse. Responsible for creating tables.
+    """
+
     def __init__(self):
         self.db_name = DB_NAME
 
     def create_shared_data_table(self):
+        """
+        Creates a table with the shared data between threads
+        """
         try:
             conn = sqlite3.connect(self.db_name)
             cursor = conn.cursor()

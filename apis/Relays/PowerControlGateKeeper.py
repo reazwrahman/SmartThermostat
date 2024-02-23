@@ -64,13 +64,7 @@ class PowerControlGateKeeper:
             self.relay_controller.turn_on(effective_temperature, reason=reason)
             return States.TURNED_ON
 
-        current_time: datetime = datetime.datetime.now()
-
-        # Calculate the difference in minutes
-        last_turned_off: datetime = datetime.datetime.strptime(
-            last_turned_off, "%Y-%m-%d %H:%M:%S.%f"
-        )
-        time_difference = (current_time - last_turned_off).total_seconds() / 60
+        time_difference = self.utility.get_time_delta(last_turned_off)
         if time_difference >= COOL_DOWN_PERIOD:
             self.relay_controller.turn_on(effective_temperature, reason=reason)
             logger.warn("PowerControlGateKeeper::turn_on turning device on")
@@ -106,13 +100,7 @@ class PowerControlGateKeeper:
             logger.warn(successful_log_msg)
             return States.TURNED_OFF
 
-        current_time: datetime = datetime.datetime.now()
-
-        # Calculate the difference in minutes
-        last_turned_on: datetime = datetime.datetime.strptime(
-            last_turned_on, "%Y-%m-%d %H:%M:%S.%f"
-        )
-        time_difference = (current_time - last_turned_on).total_seconds() / 60
+        time_difference = self.utility.get_time_delta(last_turned_on)
 
         if time_difference >= MINIMUM_ON_TIME:
             self.relay_controller.turn_off(effective_temperature, reason=reason)

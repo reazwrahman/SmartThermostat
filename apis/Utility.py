@@ -159,7 +159,7 @@ class Utility:
             Utility.state_transition_counter = 0  # restart counter
 
 
-if __name__ == "__main__": 
+if __name__ == "__main__":
     utility = Utility(
         state_record_file=STATE_CHANGE_LOGGER, max_capacity=MAX_RECORDS_TO_STORE
     )
