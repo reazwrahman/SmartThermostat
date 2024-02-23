@@ -1,18 +1,20 @@
 import sqlite3
 import logging
 from enum import Enum
+import os, sys
 
-from apis.DatabaseAccess.CreateTable import SharedDataColumns
+current_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.dirname(current_dir)
+grand_parent_dir = os.path.dirname(parent_dir)
+sys.path.append(parent_dir)
+sys.path.append(grand_parent_dir)
+
+from apis.DatabaseAccess.DbTables import SharedDataColumns
 
 DB_NAME = "DeviceHistory.db"
 SHARED_DATA_TABLE = "SharedData"
 
 logger = logging.getLogger(__name__)
-
-
-class DeviceStatus(Enum):
-    ON = "ON"
-    OFF = "OFF"
 
 
 class DbInterface:
@@ -87,25 +89,54 @@ class DbInterface:
                 return None
 
         except sqlite3.Error as e:
-            logger.error("Error reading temperature value:", e)
+            logger.error(f"Error reading {column_name} value:", e)
             return None
 
         finally:
             if conn:
                 conn.close()
 
+    def read_multiple_columns(self, column_names: tuple):
+        conn = sqlite3.connect(self.db_name)
+        cursor = conn.cursor()
+
+        try:
+            select_query = "SELECT {} FROM {}".format(
+                ", ".join(column_names), SHARED_DATA_TABLE
+            )
+            cursor.execute(select_query)
+            result: tuple = cursor.fetchone()
+        except sqlite3.Error as e:
+            logger.error(f"Error reading {column_names}:", e)
+            return None
+
+        finally:
+            if conn:
+                conn.close()
+
+        return result
+
 
 if __name__ == "__main__":
-    # Example usage
-    temperature_interface = DbInterface()
+    # test write_column and read_column
+    db_interface = DbInterface()
     written_temeprature = 0.9
-    temperature_interface.update_column(
+    db_interface.update_column(
         SharedDataColumns.LAST_TEMPERATURE.value, written_temeprature
     )
-    temperature_value = temperature_interface.read_column(
+    temperature_value = db_interface.read_column(
         SharedDataColumns.LAST_TEMPERATURE.value
     )
     assert (
         written_temeprature == temperature_value
     ), "Temperature values don't match in the datbase"
-    print("all good son")
+
+    ## test read_multiple_columns
+    result = db_interface.read_multiple_columns(
+        (SharedDataColumns.ID.value, SharedDataColumns.LAST_TEMPERATURE.value)
+    )
+    assert result == (
+        1,
+        written_temeprature,
+    ), "read_multiple_columns failed to read the right values"
+    print("DbInterface class: all unit tests passed")

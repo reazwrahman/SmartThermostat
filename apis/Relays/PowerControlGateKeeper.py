@@ -10,11 +10,13 @@ grand_parent_dir = os.path.dirname(parent_dir)
 sys.path.append(parent_dir)
 sys.path.append(grand_parent_dir)
 
-from apis.RelayControllerTarget import RelayControllerTarget
-from apis.RelayControllerSim import RelayControllerSim
-from apis.Utility import Utility, DeviceConfigKeys
-from apis.DatabaseAccess.CreateTable import SharedDataColumns
-from apis.DatabaseAccess.DbInterface import DbInterface, DeviceStatus
+from apis.Utility import Utility
+from apis.DatabaseAccess.DbTables import SharedDataColumns
+from apis.DatabaseAccess.DbInterface import DbInterface
+from apis.Relays.RelayController import RelayController
+from apis.Config import DeviceStatus
+from apis.Registrar import Registrar
+from apis.Config import RUNNING_MODE, MINIMUM_ON_TIME, COOL_DOWN_PERIOD
 
 logger = logging.getLogger(__name__)
 
@@ -35,12 +37,10 @@ class PowerControlGateKeeper:
     outlined in the configs.
     """
 
-    def __init__(self, db_interface: DbInterface, running_mode="Simulation"):
-        if running_mode == "Simulation":
-            self.relay_controller = RelayControllerSim(db_interface=db_interface)
-        else:
-            self.relay_controller = RelayControllerTarget()
-
+    def __init__(self, db_interface: DbInterface):
+        self.relay_controller: RelayController = Registrar.get_relay_controllers(
+            RUNNING_MODE
+        )
         self.db_interface: DbInterface = db_interface
         self.utility = Utility()
 
@@ -71,9 +71,7 @@ class PowerControlGateKeeper:
             last_turned_off, "%Y-%m-%d %H:%M:%S.%f"
         )
         time_difference = (current_time - last_turned_off).total_seconds() / 60
-        if time_difference >= self.utility.get_safety_configs(
-            DeviceConfigKeys.COOL_DOWN_PERIOD.value
-        ):
+        if time_difference >= COOL_DOWN_PERIOD:
             self.relay_controller.turn_on(effective_temperature, reason=reason)
             logger.warn("PowerControlGateKeeper::turn_on turning device on")
             return States.TURNED_ON
@@ -116,9 +114,7 @@ class PowerControlGateKeeper:
         )
         time_difference = (current_time - last_turned_on).total_seconds() / 60
 
-        if time_difference >= self.utility.get_safety_configs(
-            DeviceConfigKeys.MINIMUM_ON_TIME.value
-        ):
+        if time_difference >= MINIMUM_ON_TIME:
             self.relay_controller.turn_off(effective_temperature, reason=reason)
             logger.warn(successful_log_msg)
             return States.TURNED_OFF

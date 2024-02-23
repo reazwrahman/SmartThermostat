@@ -9,10 +9,11 @@ grand_parent_dir = os.path.dirname(parent_dir)
 sys.path.append(parent_dir)
 sys.path.append(grand_parent_dir)
 
-from apis.RelayController import RelayController
+from apis.Relays.RelayController import RelayController
 from apis.Utility import Utility
-from apis.DatabaseAccess.CreateTable import SharedDataColumns
-from apis.DatabaseAccess.DbInterface import DbInterface, DeviceStatus
+from apis.DatabaseAccess.DbTables import SharedDataColumns
+from apis.DatabaseAccess.DbInterface import DbInterface
+from apis.Config import DeviceStatus
 
 logger = logging.getLogger(__name__)
 
@@ -46,11 +47,8 @@ class RelayControllerSim(RelayController):
             self.db_interface.update_column(
                 SharedDataColumns.LAST_TURNED_ON.value, datetime.datetime.now()
             )
-            self.utility.record_state_transition(
-                status=self.current_state,
-                effective_temperature=effective_temperature,
-                reason=reason,
-            )
+            state_info: tuple = (self.current_state, effective_temperature, reason)
+            self.utility.record_state_transition(state_info)
             return True
         except Exception as e:
             logger.error(
@@ -70,11 +68,8 @@ class RelayControllerSim(RelayController):
             self.db_interface.update_column(
                 SharedDataColumns.LAST_TURNED_OFF.value, datetime.datetime.now()
             )
-            self.utility.record_state_transition(
-                status=self.current_state,
-                effective_temperature=effective_temperature,
-                reason=reason,
-            )
+            state_info: tuple = (self.current_state, effective_temperature, reason)
+            self.utility.record_state_transition(state_info)
             return True
         except Exception as e:
             logger.error(
@@ -110,4 +105,4 @@ if __name__ == "__main__":
         == DeviceStatus.OFF.value
     ), "RelayControllerSim failed to turn off device"
 
-    print("all test succeeded")
+    print("RelayControllerSim class: all unit tests passed")

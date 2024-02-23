@@ -10,12 +10,12 @@ grand_parent_dir = os.path.dirname(parent_dir)
 sys.path.append(parent_dir)
 sys.path.append(grand_parent_dir)
 
-from apis.TemperatureSensor import TemperatureSensor
+from apis.Sensors.TemperatureSensor import TemperatureSensor
 
 logger = logging.getLogger(__name__)
 
 
-CONFIG_FILE = "apis/simulation_parameters.json"
+CONFIG_FILE = "apis/sensors/simulation_parameters.json"
 
 
 class TemperatureSensorSim(TemperatureSensor):
@@ -94,18 +94,22 @@ if __name__ == "__main__":
         expected_temperature: float = round(
             sensor_sim.start_temp - sensor_sim.drop_rate * i, 2
         )
+        actual_temperature = sensor_sim.get_temperature(False)
         assert (
-            sensor_sim.get_temperature(False) == expected_temperature
+            actual_temperature == expected_temperature
         ), f"Returned wrong temperature value for read {i} (when heater is off)"
         i += 1
 
-    ##  # test get_temperature method::test three reads when heater is on
+    ## test get_temperature method::test three reads when heater is on
     current_temperature = sensor_sim.get_temperature(True)
     i = 1
-    while i < 4:
+    while i < 5:
         time.sleep(0.1)
-        expected_temperature = current_temperature + sensor_sim.rise_rate * i
+        expected_temperature = round(current_temperature + sensor_sim.rise_rate * i, 2)
+        actual_temperature = sensor_sim.get_temperature(True)
         assert (
-            sensor_sim.get_temperature(True) == expected_temperature
+            actual_temperature == expected_temperature
         ), f"Returned wrong temperature value for read {i} (when heater is on)"
         i += 1
+
+    print("TemperatureSensorSim class: all unit tests passed")

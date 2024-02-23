@@ -1,4 +1,4 @@
-from apis.RelayController import RelayController
+from apis.Relays.RelayController import RelayController
 
 
 class RelayControllerTarget(RelayController):

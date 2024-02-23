@@ -17,11 +17,11 @@ class SharedDataColumns(Enum):
     TARGET_TEMPERATURE = "target_temperature"
 
 
-class CreateTable:
+class DbTables:
     def __init__(self):
         self.db_name = DB_NAME
 
-    def create_shared_datatable(self):
+    def create_shared_data_table(self):
         try:
             conn = sqlite3.connect(self.db_name)
             cursor = conn.cursor()
@@ -53,8 +53,3 @@ class CreateTable:
         finally:
             if conn:
                 conn.close()
-
-
-if __name__ == "__main__":
-    table_creator = CreateTable()
-    table_creator.create_shared_datatable()
