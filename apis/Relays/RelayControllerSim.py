@@ -105,4 +105,4 @@ if __name__ == "__main__":
         == DeviceStatus.OFF.value
     ), "RelayControllerSim failed to turn off device"
 
-    print("all test succeeded")
+    print("RelayControllerSim class: all unit tests passed")

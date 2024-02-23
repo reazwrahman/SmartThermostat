@@ -139,4 +139,4 @@ if __name__ == "__main__":
         1,
         written_temeprature,
     ), "read_multiple_columns failed to read the right values"
-    print("all tests passed")
+    print("DbInterface class: all unit tests passed")

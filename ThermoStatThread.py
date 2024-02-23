@@ -80,6 +80,9 @@ class ThermoStatThread(Thread):
         logging.warn(f"{self.thread_name} is terminated")
 
     def __check_device_on_time(self):
+        """
+        checks if device on time has exceeded the max threshold
+        """
         last_turned_on: str = self.db_interface.read_column(
             SharedDataColumns.LAST_TURNED_ON.value
         )

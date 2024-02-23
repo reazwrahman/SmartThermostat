@@ -112,4 +112,4 @@ if __name__ == "__main__":
         ), f"Returned wrong temperature value for read {i} (when heater is on)"
         i += 1
 
-    print("all tests passed")
+    print("TemperatureSensorSim class: all unit tests passed")

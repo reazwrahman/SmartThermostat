@@ -53,8 +53,3 @@ class DbTables:
         finally:
             if conn:
                 conn.close()
-
-
-if __name__ == "__main__":
-    table_creator = DbTables()
-    table_creator.create_shared_data_table()

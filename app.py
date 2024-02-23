@@ -19,6 +19,9 @@ logger = logging.getLogger(__name__)
 
 
 def get_target_temperature():
+    """
+    gets desired temperature from user input
+    """
     input_is_invalid: bool = True
     while input_is_invalid:
         try:
@@ -40,16 +43,25 @@ def get_target_temperature():
     return target_temp
 
 
+def delete_file(file_name):
+    """
+    deletes the specified file
+    """
+    try:
+        if os.path.exists(os.path.join(os.getcwd(), file_name)):
+            os.remove(file_name)
+        return True
+    except Exception as e:
+        logger.error(f"Unable to delete file {file_name}, exception: {str(e)}")
+        return False
+
+
 if __name__ == "__main__":
     ## get target temperature
     target_temp: float = get_target_temperature()
 
     ## clean up directory
-    if os.path.exists(os.path.join(os.getcwd(), STATE_CHANGE_LOGGER)):
-        os.remove(STATE_CHANGE_LOGGER)
-
-    if os.path.exists(os.path.join(os.getcwd(), DATABASE)):
-        os.remove(DATABASE)
+    files_deleted = delete_file(STATE_CHANGE_LOGGER) and delete_file(DATABASE)
 
     ## prepare database
     table_creator = DbTables()
