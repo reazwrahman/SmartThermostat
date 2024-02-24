@@ -41,7 +41,8 @@ Input file: apis/simulation_parameters.json
 
 output file: state_transition_record.txt (gets generated at runtime)
 
-5) for requirements below: use the apis/Utility.py file. I have written it in a way so that it meets all the requirements.  
+5) for requirements regarding class: use the apis/Utility.py file. 
+I have written it in a way so that it meets all the requirements.  
 
 
 # A summary of the project and the motivation behind it 

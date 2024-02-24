@@ -6,6 +6,7 @@ from apis.DatabaseAccess.DbTables import SharedDataColumns
 from apis.Config import DeviceStatus
 from apis.Registrar import Registrar
 from apis.Config import RUNNING_MODE
+from apis.Sensors.TemperatureSensor import TemperatureSensor
 
 DELAY_BETWEEN_READS = 1  # take a read every n seconds
 SAMPLE_SIZE = 5  # take average of n reads before taking any action
@@ -21,7 +22,9 @@ class TemperatureSensorThread(Thread):
 
     def __init__(self, db_interface, thread_name="TemperatureSensorThread"):
         Thread.__init__(self)
-        self.thermo_stat = Registrar.get_temperature_sensor(RUNNING_MODE)
+        self.thermo_stat: TemperatureSensor = Registrar.get_temperature_sensor(
+            RUNNING_MODE
+        )
         self.thread_name = thread_name
         self.keep_me_alive = True
         self.db_interface = db_interface
