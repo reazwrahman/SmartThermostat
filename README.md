@@ -19,30 +19,12 @@ so that everything is run from the root.
 
 
 
-# Helpful tips for grading 
-
-1) to look for the usage of a specific data structure, do a global search 
-with set, dict, list or tuple. 
-I have initialized the data structure with those types, a global search should 
-pick those up from the repository. 
-example: ```my_list:list = [1,2,3] ```  
-
-2) 1 iteration type (for, while), 1 conditional (if) & 
-1 try block with an else condition. 
-
-These are kinda spread across the codebase, a global search should do the trick. 
-
-3) To meet the requirement for 1 user-defined function: 
-look at the two functions in the app.py file: ```get_target_temperature``` 
-and ```delete_file```  
-
-4) 1 input and/or output file (include input data with your project) 
-Input file: apis/simulation_parameters.json
-
-output file: state_transition_record.txt (gets generated at runtime)
-
-5) for requirements regarding class: use the apis/Utility.py file. 
-I have written it in a way so that it meets all the requirements.  
+# Docker instructions 
+1) to build: ```docker build --no-cache -t thermostat-docker .``` 
+2) to run application in docker: 
+```docker run -it thermostat-docker``` 
+3) to run docker terminal: 
+```docker run -it thermostat-docker /bin/bash```
 
 
 # A summary of the project and the motivation behind it 
