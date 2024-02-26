@@ -1,11 +1,3 @@
-"""
-Reaz W. Rahman
-Class: CS 521 - Spring 1
-Date: 2/24/2024
-Final Project: Smart Thermostat
-Description of the project : A Smart Thermostat
-"""
-
 import logging
 import os
 
