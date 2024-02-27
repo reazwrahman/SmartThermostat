@@ -1,20 +1,50 @@
 state_change: Device Turned On 
-state_change_cause:  
-effective_temperature: 0.0 
-target_temperature: 13.0 
-last_turned_on: 2024-02-26 14:44:29.727452 
+state_change_cause: Current Temperature is below target temperature 
+effective_temperature: 11.96 
+target_temperature: 12.0 
+last_turned_on: 2024-02-26 20:36:50.997586 
 last_turned_off: None 
-current_timestamp: 2024-02-26 14:44:29.729007 
+current_timestamp: 2024-02-26 20:36:51.000735 
 on_for_minutes: 0.0 
 off_for_minutes:  
 
 state_change: Device Turned Off 
-state_change_cause:  
-effective_temperature: 0.0 
-target_temperature: 13.0 
-last_turned_on: 2024-02-26 14:44:29.731160 
-last_turned_off: None 
-current_timestamp: 2024-02-26 14:44:29.731828 
+state_change_cause: Current Temperature is above target temperature 
+effective_temperature: 12.17 
+target_temperature: 12.0 
+last_turned_on: 2024-02-26 20:36:50.997586 
+last_turned_off: 2024-02-26 20:37:21.032880 
+current_timestamp: 2024-02-26 20:37:21.037156 
+on_for_minutes: 0.5 
+off_for_minutes: 0.0 
+
+state_change: Device Turned On 
+state_change_cause: Current Temperature is below target temperature 
+effective_temperature: 10.11 
+target_temperature: 12.0 
+last_turned_on: 2024-02-26 20:38:21.099653 
+last_turned_off: 2024-02-26 20:37:21.032880 
+current_timestamp: 2024-02-26 20:38:21.102260 
 on_for_minutes: 0.0 
-off_for_minutes:  
+off_for_minutes: 1.0 
+
+state_change: Device Turned Off 
+state_change_cause: Device's maximum on time has exceeded 
+effective_temperature: 10.62 
+target_temperature: 12.0 
+last_turned_on: 2024-02-26 20:38:21.099653 
+last_turned_off: 2024-02-26 20:39:21.150702 
+current_timestamp: 2024-02-26 20:39:21.153827 
+on_for_minutes: 1.0 
+off_for_minutes: 0.0 
+
+state_change: Device Turned On 
+state_change_cause: Current Temperature is below target temperature 
+effective_temperature: 8.75 
+target_temperature: 12.0 
+last_turned_on: 2024-02-26 20:40:21.208366 
+last_turned_off: 2024-02-26 20:39:21.150702 
+current_timestamp: 2024-02-26 20:40:21.212234 
+on_for_minutes: 0.0 
+off_for_minutes: 1.0 
 

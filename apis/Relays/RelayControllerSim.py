@@ -64,7 +64,7 @@ class RelayControllerSim(RelayController):
         try:
             columns: tuple = (
                 SharedDataColumns.DEVICE_STATUS.value,
-                SharedDataColumns.LAST_TURNED_ON.value,
+                SharedDataColumns.LAST_TURNED_OFF.value,
             )
             new_values: tuple = (DeviceStatus.OFF.value, datetime.datetime.now())
             self.db_interface.update_multiple_columns(columns, new_values)
