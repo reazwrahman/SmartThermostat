@@ -8,8 +8,8 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(current_dir)
 grand_parent_dir = os.path.dirname(parent_dir)
 sys.path.append(parent_dir)
-sys.path.append(grand_parent_dir) 
-script_dir = os.path.dirname(os.path.abspath(__file__)) 
+sys.path.append(grand_parent_dir)
+script_dir = os.path.dirname(os.path.abspath(__file__))
 
 
 from apis.Sensors.TemperatureSensor import TemperatureSensor
@@ -17,7 +17,7 @@ from apis.Sensors.TemperatureSensor import TemperatureSensor
 logger = logging.getLogger(__name__)
 
 
-CONFIG_FILE = os.path.join(script_dir,"simulation_parameters.json")
+CONFIG_FILE = os.path.join(script_dir, "simulation_parameters.json")
 
 
 class TemperatureSensorSim(TemperatureSensor):

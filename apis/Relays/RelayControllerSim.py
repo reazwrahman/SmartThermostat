@@ -41,7 +41,10 @@ class RelayControllerSim(RelayController):
         """
         self.current_state = True
         try:
-            columns: tuple = (SharedDataColumns.DEVICE_STATUS.value, SharedDataColumns.LAST_TURNED_ON.value)
+            columns: tuple = (
+                SharedDataColumns.DEVICE_STATUS.value,
+                SharedDataColumns.LAST_TURNED_ON.value,
+            )
             new_values: tuple = (DeviceStatus.ON.value, datetime.datetime.now())
             self.db_interface.update_multiple_columns(columns, new_values)
             state_info: tuple = (self.current_state, effective_temperature, reason)
@@ -59,7 +62,10 @@ class RelayControllerSim(RelayController):
         """
         self.current_state = False
         try:
-            columns: tuple = (SharedDataColumns.DEVICE_STATUS.value, SharedDataColumns.LAST_TURNED_ON.value)
+            columns: tuple = (
+                SharedDataColumns.DEVICE_STATUS.value,
+                SharedDataColumns.LAST_TURNED_ON.value,
+            )
             new_values: tuple = (DeviceStatus.OFF.value, datetime.datetime.now())
             self.db_interface.update_multiple_columns(columns, new_values)
             state_info: tuple = (self.current_state, effective_temperature, reason)

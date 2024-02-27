@@ -12,9 +12,9 @@ from apis.Registrar import RunningModes
 
 RUNNING_MODE = RunningModes.SIM  ## the mode we are running the application in
 
-MINIMUM_ON_TIME = 0.5  # minutes
-COOL_DOWN_PERIOD = 0.5  # minutes
-MAXIMUM_ON_TIME = 1  # minutes
+MINIMUM_ON_TIME = 1  # minutes
+COOL_DOWN_PERIOD = 3  # minutes
+MAXIMUM_ON_TIME = 15  # minutes
 
 
 class DeviceStatus(Enum):
