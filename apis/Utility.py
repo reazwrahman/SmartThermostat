@@ -165,7 +165,7 @@ if __name__ == "__main__":
     )
     ## test get time delta
     time_now = datetime.datetime.now()
-    delta = 5
+    delta = 15
     past_time = str(time_now - datetime.timedelta(minutes=delta))
     assert (
         utility.get_time_delta(past_time) == delta

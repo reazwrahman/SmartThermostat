@@ -64,6 +64,35 @@ class DbInterface:
             if conn:
                 conn.close()
 
+    def update_multiple_columns(self, column_names, new_values):
+        """
+        Updates multiple columns in the database table with the provided values
+        """
+        try:
+            conn = sqlite3.connect(self.db_name)
+            cursor = conn.cursor()
+
+            # Update existing row
+            set_clause = ", ".join(
+                [f"{column_name} = ?" for column_name in column_names]
+            )
+            query = f"""
+                UPDATE {SHARED_DATA_TABLE}
+                SET {set_clause}
+                WHERE id = 1
+            """
+            cursor.execute(query, new_values)
+
+            conn.commit()
+            logger.info(f"Columns updated successfully: {column_names}")
+
+        except sqlite3.Error as e:
+            logger.error(f"Error updating columns: {e}")
+
+        finally:
+            if conn:
+                conn.close()
+
     def read_column(self, column_name):
         """
         reads the specified column from the table and returns the value
@@ -131,12 +160,20 @@ if __name__ == "__main__":
         written_temeprature == temperature_value
     ), "Temperature values don't match in the datbase"
 
+    ## test update_multiple_columns
+    column_names: tuple = (
+        SharedDataColumns.LAST_TEMPERATURE.value,
+        SharedDataColumns.LAST_TURNED_ON.value,
+    )
+    values: tuple = (21.4, "test_val")
+    db_interface.update_multiple_columns(column_names, values)
+
     ## test read_multiple_columns
     result = db_interface.read_multiple_columns(
-        (SharedDataColumns.ID.value, SharedDataColumns.LAST_TEMPERATURE.value)
+        (
+            SharedDataColumns.LAST_TEMPERATURE.value,
+            SharedDataColumns.LAST_TURNED_ON.value,
+        )
     )
-    assert result == (
-        1,
-        written_temeprature,
-    ), "read_multiple_columns failed to read the right values"
+    assert result == values, "read_multiple_columns failed to read the right values"
     print("DbInterface class: all unit tests passed")
