@@ -12,7 +12,7 @@ from apis.Registrar import RunningModes
 
 RUNNING_MODE = RunningModes.SIM  ## the mode we are running the application in
 
-MINIMUM_ON_TIME = 3 # minutes
+MINIMUM_ON_TIME = 3  # minutes
 COOL_DOWN_PERIOD = 3  # minutes
 MAXIMUM_ON_TIME = 15  # minutes
 
